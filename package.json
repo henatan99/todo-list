@@ -2,7 +2,7 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "This project is building a To-do list app to practice JavaScript's Objects, Factory Functions and Module Patterns concepts",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "eslint-config-airbnb-base": "^14.1.0",
