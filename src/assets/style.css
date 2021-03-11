@@ -1,3 +1,48 @@
 #container {
-    background: black;
+    width: 100%;
+    height: 100vh;
+    background: rgb(185, 179, 179);
+}
+
+/* The code below corresponds to navbar.js */
+
+.navBarNav {
+    width: 100%;
+    height: 5rem;
+    border: 1px solid rgb(182, 108, 108);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profileDiv {
+    width: 15%;
+    border-right: 1px solid;
+    height: 5rem;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 1rem; */
+    padding: 0 1rem 0 1rem;
+}
+
+.profileImgdiv {
+    width: 4rem;
+    height: fit-content;
+    background: rgb(165, 175, 122);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profileImg {
+    width: 4rem;
+    height: 4rem;
+}
+
+.userNameSpan {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: white;
 }
