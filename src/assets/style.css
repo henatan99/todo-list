@@ -32,14 +32,16 @@ body {
     padding: 0 1rem 0 1rem;
 }
 
-.profileImgdiv {
+.profileImgDiv {
     width: 4rem;
-    height: fit-content;
+    height: 4rem;
     background: rgb(165, 175, 122);
     display: flex;
     flex-direction: row;
     justify-content: center;
     object-fit: cover;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 
 .profileImg {
