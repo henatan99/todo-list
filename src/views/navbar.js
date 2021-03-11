@@ -1,20 +1,27 @@
 import rootPath from '../helpers/rootpath';
+import profileImg from '../assets/images/photo.jpeg'
 
 const ROOT = rootPath();
 
-const imgPath = (img) => {
-    return `${ROOT}/src/assets/images/${img}`;
-} 
+// const imgPath = (img) => {
+//     return `${ROOT}/src/assets/images/${img}`;
+// } 
+
+const imgPath = new Image();
+imgPath.src = profileImg;
+imgPath.classList.add('profileImg');
 
 const profile = (profileImg, userName) => {
     let profileDiv = document.createElement('div');
     profileDiv.classList.add('profileDiv');
     profileDiv.setAttribute('id', 'profileDiv');
 
-    let profileImgPath = imgPath(profileImg);
-    let profileImgDiv = `${'<div class="profileImgdiv"><img src="../src/'}${profileImgPath}" class="profileImg"></div>`;
+    let profileImgDiv = document.createElement('div');
+    profileImgDiv.classList.add('profileImageDiv');
+    profileImgDiv.appendChild(imgPath);
+
     let userNameSpan = `<span class="userNameSpan">${userName}</span>`;
-    profileDiv.innerHTML = profileImgDiv + userNameSpan;
+    profileDiv.innerHTML = profileImgDiv.innerHTML + userNameSpan;
     return profileDiv; 
 }
 
