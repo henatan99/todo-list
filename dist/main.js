@@ -470,6 +470,27 @@ leftDiv.appendChild(menuUl);
 
 
 
+/***/ }),
+/* 8 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ taskformDiv)
+/* harmony export */ });
+const taskformDiv = document.createElement('div');
+const title = '<input type="text" id="title" name="title" ><br>';
+const schedule = '<button id="schedule" class="schedule">Schedule</button>';
+const note = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
+const project = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
+const priority = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
+const addTask = '<button id="task-btn" class="tsk-btn">Add Task</button>';
+
+taskformDiv.innerHTML = title + schedule + note + project + priority + addTask;
+
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -578,6 +599,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _assets_images_photo_jpeg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _views_left_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _views_taskfrom_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+
 
 
 
@@ -588,7 +611,7 @@ const container = document.getElementById("container");
 const nav = (0,_views_navbar__WEBPACK_IMPORTED_MODULE_1__.default) (_assets_images_photo_jpeg__WEBPACK_IMPORTED_MODULE_2__.default, 'henatan');
 container.appendChild(nav);
 container.appendChild(_views_left_js__WEBPACK_IMPORTED_MODULE_3__.default);
-
+container.appendChild(_views_taskfrom_js__WEBPACK_IMPORTED_MODULE_4__.default);
 })();
 
 /******/ })()
