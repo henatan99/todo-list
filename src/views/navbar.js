@@ -11,13 +11,19 @@ const profile = (profileImg, userName) => {
 }
 
 const navBar = (profileImg, userName) => {
+    let taskButton = document.createElement('button');
+    taskButton.classList.add('task-btn');
+    taskButton.setAttribute('id', 'task-btn');
+    taskButton.innerText = 'Add Task';
+
     let navBarNav = document.createElement('nav');
     navBarNav.classList.add('navBarNav');
     navBarNav.setAttribute('id', 'navBarNav');
-
+    
     let profileDiv =  profile(profileImg, userName);
     navBarNav.appendChild(profileDiv);
-    
+    navBarNav.appendChild(taskButton);
+
     return navBarNav;
 }
 
