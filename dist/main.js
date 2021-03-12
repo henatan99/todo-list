@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -447,10 +447,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ leftDiv)
 /* harmony export */ });
-const createElem = (tag) => {
+const createElem = (tag, name) => {
     let elem = document.createElement(tag);
-    elem.classList.add(tag);
-    elem.setAttribute('id', tag);
+    elem.classList.add(name);
+    elem.setAttribute('id', name);
     return elem;
 }
 
@@ -458,9 +458,9 @@ const radioInput = (id, name, value) => `<input type="radio" id=${id} name=${nam
 const radioLabel = (name, text) => `<label for=${name}>${text}</label><br></br>`;
 const radioItem = (id, name, value, text) => radioInput(id, name, value) + radioLabel(name, text) ; 
 
-const leftDiv = createElem('div');
-const menuUl = createElem('ul');
-const ListItemLi = createElem('li');
+const leftDiv = createElem('div', 'left');
+const menuUl = createElem('ul', 'menu');
+const ListItemLi = createElem('li', 'menu-list');
 
 let radioItem1 = radioItem('radio1', 'radio1', 'classroom', 'Classroom');
 ListItemLi.innerHTML = radioItem1;
@@ -476,17 +476,66 @@ leftDiv.appendChild(menuUl);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ middleDiv)
+/* harmony export */ });
+/* harmony import */ var _taskform_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+
+
+const createElem = (tag, name) => {
+    let elem = document.createElement(tag);
+    elem.classList.add(name);
+    elem.setAttribute('id', name);
+    return elem;
+}
+
+const middleDiv = createElem('div', 'middle');
+middleDiv.appendChild(_taskform_js__WEBPACK_IMPORTED_MODULE_0__.default);
+
+
+
+/***/ }),
+/* 9 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskformDiv)
 /* harmony export */ });
 const taskformDiv = document.createElement('div');
-const title = '<input type="text" id="title" name="title" ><br>';
-const schedule = '<button id="schedule" class="schedule">Schedule</button>';
-const note = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
-const project = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
-const priority = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
-const addTask = '<button id="task-btn" class="tsk-btn">Add Task</button>';
+taskformDiv.classList.add('taskform');
+taskformDiv.setAttribute('id', 'taskform');
 
-taskformDiv.innerHTML = title + schedule + note + project + priority + addTask;
+const defProjects = '<option value="home">Home</option><option value="personal">Personal</option>' +
+'<option value="work">Work</option><option value="fitness">Fitness</option><option value="Shopping">Home</option>';
+let projects = defProjects;
+const addProjects = (projects, project) => {
+    projects += project;
+}
+
+const priorities = (i) => {
+    if (i == 1) return `<option value="priority${1}">Priority ${1}</option>`;
+    return `<option value="priority${i}">Priority ${i}</option>` + priorities(i-1);    
+}
+
+const title = '<input type="text" id="title" name="title" ><br>';
+
+const projectSelect = '<select name="project-select" id="project-select">' + projects + '</select>'
+const projectbtn = '<button id ="projectbtn" class="projectbtn"> <span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span> </button>';
+const project = `<div id="project" class="project">${projectbtn}${projectSelect}</div>`;
+
+let myPriorities = priorities(10);
+const prioritySelect = '<select name="priority-select" id="priority-select">' + myPriorities + '</select>';
+const prioritybtn = '<button id="prioritybtn" class="priorityrtn"> <span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span> </button>';
+
+const priority = `<div id="priority" class="priority">${prioritybtn}${prioritySelect}</div>`;
+
+const schedulebtn = '<button id="schedule" class="schedule">Schedule</button>';
+const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
+
+const addTask = '<button id="task-btn" class="tsk-btn">Add Task</button>';
+const note = '<textfield id="note" class="note" placeholder="Write todo description"></textfield>'
+
+taskformDiv.innerHTML = title + schedulebtn + note + project + priority + addTask;
 
 
 
@@ -599,7 +648,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _assets_images_photo_jpeg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _views_left_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var _views_taskfrom_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var _views_middle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 
 
 
@@ -610,8 +659,16 @@ const container = document.getElementById("container");
 
 const nav = (0,_views_navbar__WEBPACK_IMPORTED_MODULE_1__.default) (_assets_images_photo_jpeg__WEBPACK_IMPORTED_MODULE_2__.default, 'henatan');
 container.appendChild(nav);
-container.appendChild(_views_left_js__WEBPACK_IMPORTED_MODULE_3__.default);
-container.appendChild(_views_taskfrom_js__WEBPACK_IMPORTED_MODULE_4__.default);
+
+const front  = document.createElement('div');
+front.classList.add('front');
+front.setAttribute('id', 'front');
+
+front.appendChild(_views_left_js__WEBPACK_IMPORTED_MODULE_3__.default);
+front.appendChild(_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default);
+
+container.appendChild(front);
+
 })();
 
 /******/ })()
