@@ -26,6 +26,7 @@ const prioritybtn = '<button id="prioritybtn" class="priorityrtn"> <span class="
 
 const priority = `<div id="priority" class="priority">${prioritybtn}${prioritySelect}</div>`;
 
+
 const schedulebtn = '<button id="schedule" class="schedule">Schedule</button>';
 const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
 
