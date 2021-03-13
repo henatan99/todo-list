@@ -88,3 +88,21 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+/* calendar */
+
+.yearDiv, .monthDiv, .week, .dateDiv {
+    display: none;
+}
+.calendar {
+    width: 14rem;
+}
+
+.calendar:hover .schedule {
+    display: block;
+}
+
+.cell, .week {
+    width: 2rem;
+    height: 1.5rem;
+}

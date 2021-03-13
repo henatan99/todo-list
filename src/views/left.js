@@ -10,12 +10,21 @@ const radioLabel = (name, text) => `<label for=${name}>${text}</label><br></br>`
 const radioItem = (id, name, value, text) => radioInput(id, name, value) + radioLabel(name, text) ; 
 
 const leftDiv = createElem('div', 'left');
-const menuUl = createElem('ul', 'menu');
-const ListItemLi = createElem('li', 'menu-list');
+const radioFrom = createElem('form', 'radioform');
 
-let radioItem1 = radioItem('radio1', 'radio1', 'classroom', 'Classroom');
-ListItemLi.innerHTML = radioItem1;
-menuUl.appendChild(ListItemLi);
-leftDiv.appendChild(menuUl);
+
+const projectList = (projects = []) => {
+    const defaultProjects = ['Today', 'Tomorrow', 'This Week', 'Home', 'Personal', 'Work', 'Fitness'];
+    defaultProjects.push(projects);
+    let radioItems;
+    for (let i=0; i<defaultProjects.length; i+=1) {
+        radioItems += radioItem(`radio${i+1}`, `radio${i+1}`, `${defaultProjects[i]}`, `${defaultProjects[i]}`);
+    }
+    return radioItems;
+}
+
+
+radioFrom.innerHTML = projectList();
+leftDiv.appendChild(radioFrom);
 
 export {leftDiv as default};
