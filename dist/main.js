@@ -467,7 +467,7 @@ const projectList = (projects = []) => {
     defaultProjects.push(projects);
     let radioItems;
     for (let i=0; i<defaultProjects.length; i+=1) {
-        radioItems += radioItem(`radio${i+1}`, `radio${i+1}`, `${defaultProjects[i]}`, `${defaultProjects[i]}`);
+        radioItems += radioItem(`radio${i+1}`, 'projects', `${defaultProjects[i]}`, `${defaultProjects[i]}`);
     }
     return radioItems;
 }
