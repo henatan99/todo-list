@@ -7,6 +7,7 @@ import Calendar from './classes/calendar';
 import calendarEvent from './views/calendarevent.js';
 import getSelectedOption from './views/getoption';
 import date from './views/dateClickEvent';
+import taskFormEvent from './views/taskformevent';
 
 const container = document.getElementById("container");
 
@@ -26,4 +27,5 @@ front.appendChild(middleDiv(projectsArr, prioritiesArr));
 container.appendChild(front);
 calendarEvent();
 date();
+taskFormEvent();
 

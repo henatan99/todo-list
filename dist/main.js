@@ -629,6 +629,7 @@ const dateCells = () => {
         dateStr += `<button id="cell${i}" class="cell"></button>`;
     }
     const dateDiv = createElem('div', 'dateDiv');
+    dateDiv.setAttribute('value', '');
     dateDiv.innerHTML = dateStr;
     return dateDiv;
 }
@@ -803,6 +804,7 @@ const date = () => {
     const selectMonth = document.getElementById("selectMonth");
     const selectYear = document.getElementById("selectYear");
     const dateBtn = document.getElementById("dateDiv");
+    dateBtn.getAttribute('name', 'datediv');
 
     const dateVal = {'year': '', 'month': '', 'day': ''};
     dateBtn.addEventListener('click', (event) => {       
@@ -813,9 +815,50 @@ const date = () => {
             dateVal['day'] = elem.innerText;
             dateVal['month'] = month;
             dateVal['year'] = year;
-            alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
-        }   
+            dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year'] = year}`;
+            alert(dateBtn.value);                                  
+        }        
+    });    
+}
+
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ taskFormEvent)
+/* harmony export */ });
+const taskFormEvent = () => {
+    const taskForm = document.getElementById("taskform");
+    let selectProject = document.getElementById("select-project");
+    // const selectProject = taskForm.childNodes[0].childNodes[1];
+    let selectPriority = document.getElementById("select-priority");
+    // const selectPriority = taskForm.childNodes[1].childNodes[1];s
+    const dateDiv = document.getElementById("dateDiv"); 
+    const noteText = document.getElementById("note");
+    const addTaskBtn = document.getElementById("tsk-btn");
+
+    const taskObj = {'project': '', 'priority': '', 'date': ''};
+    taskForm.addEventListener('click', (event) => {
+        const elem = event.target;
+        if(elem.classList.contains('tsk-btn')) {
+            alert('Task button clicked');
+            const date = dateDiv.value;
+            // const date = `${year}-${month}-${day}`;
+            let project = getSelectedOption(selectProject).value;
+            let priority = getSelectedOption(selectPriority).value;
+            taskObj['project'] = project;
+            taskObj['priority'] = priority;
+            taskObj['date'] = date;
+            alert(`project: ${taskObj['project']}, priority: ${taskObj['priority']}, date: ${taskObj['date']}`);
+            alert('nononono...');
+        }     
+
     });
+    // alert(`project: ${taskObj['project']}, priority: ${taskObj['priority']}, date: ${taskObj['day']}`);
 }
 
 
@@ -933,6 +976,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
 /* harmony import */ var _views_getoption__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
 /* harmony import */ var _views_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
+/* harmony import */ var _views_taskformevent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(16);
+
 
 
 
@@ -961,6 +1006,7 @@ front.appendChild((0,_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default)(proj
 container.appendChild(front);
 (0,_views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__.default)();
 (0,_views_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();
+(0,_views_taskformevent__WEBPACK_IMPORTED_MODULE_9__.default)();
 
 
 })();

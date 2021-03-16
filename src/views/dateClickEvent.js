@@ -5,6 +5,7 @@ const date = () => {
     const selectMonth = document.getElementById("selectMonth");
     const selectYear = document.getElementById("selectYear");
     const dateBtn = document.getElementById("dateDiv");
+    dateBtn.getAttribute('name', 'datediv');
 
     const dateVal = {'year': '', 'month': '', 'day': ''};
     dateBtn.addEventListener('click', (event) => {       
@@ -15,9 +16,10 @@ const date = () => {
             dateVal['day'] = elem.innerText;
             dateVal['month'] = month;
             dateVal['year'] = year;
-            alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
-        }   
-    });
+            dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year'] = year}`;
+            alert(dateBtn.value);                                  
+        }        
+    });    
 }
 
 export {date as default};

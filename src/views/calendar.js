@@ -40,6 +40,7 @@ const dateCells = () => {
         dateStr += `<button id="cell${i}" class="cell"></button>`;
     }
     const dateDiv = createElem('div', 'dateDiv');
+    dateDiv.setAttribute('value', '');
     dateDiv.innerHTML = dateStr;
     return dateDiv;
 }
