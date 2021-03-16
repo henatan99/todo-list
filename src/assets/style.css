@@ -94,13 +94,18 @@ body {
 .yearDiv, .monthDiv, .week, .dateDiv {
     display: block;
 }
-.schedule {
+
+.dateDiv {
     width: 14rem;
+}
+
+.schedule {
+    width: fit-content;
     display: inline;
 }
 
 .div-schedule {
-    display: none;
+    /* display: none; */
 }
 
 .schedulebtn:hover .div-schedule{
@@ -110,4 +115,9 @@ body {
 .cell, .week {
     width: 2rem;
     height: 1.5rem;
+}
+
+.cell:focus {
+    color: white;
+    background: black;
 }

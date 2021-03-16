@@ -5,7 +5,7 @@ import fillCells from './fillCells';
 const calendarEvent = () => {
     const selectMonth = document.getElementById("selectMonth");
     const selectYear = document.getElementById("selectYear");
-
+    
     selectMonth.addEventListener('change', (event) => {
         const result = document.querySelector('.result');
         const month = event.target.value;
