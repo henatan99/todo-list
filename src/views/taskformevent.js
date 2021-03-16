@@ -1,9 +1,10 @@
+import getSelectedOption from './getoption';
 const taskFormEvent = () => {
     const taskForm = document.getElementById("taskform");
-    let selectProject = document.getElementById("select-project");
+    let selectProject = document.querySelector('#select-project');
     // const selectProject = taskForm.childNodes[0].childNodes[1];
-    let selectPriority = document.getElementById("select-priority");
-    // const selectPriority = taskForm.childNodes[1].childNodes[1];s
+    let selectPriority = document.querySelector('#select-priority');
+    // const selectPriority = taskForm.childNodes[1].childNodes[1];
     const dateDiv = document.getElementById("dateDiv"); 
     const noteText = document.getElementById("note");
     const addTaskBtn = document.getElementById("tsk-btn");

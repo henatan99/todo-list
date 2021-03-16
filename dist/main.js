@@ -749,16 +749,14 @@ const calendarEvent = () => {
     const selectMonth = document.getElementById("selectMonth");
     const selectYear = document.getElementById("selectYear");
     
-    selectMonth.addEventListener('change', (event) => {
-        const result = document.querySelector('.result');
+    selectMonth.addEventListener('change', (event) => {        
         const month = event.target.value;
         const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectYear).value;
         const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
         const fillcells = (0,_fillCells__WEBPACK_IMPORTED_MODULE_2__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
     });
 
-    selectYear.addEventListener('change', (event) => {
-        const result = document.querySelector('.result');
+    selectYear.addEventListener('change', (event) => {        
         const year = event.target.value;
         const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectMonth).value;
         const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
@@ -831,12 +829,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskFormEvent)
 /* harmony export */ });
+/* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+
 const taskFormEvent = () => {
     const taskForm = document.getElementById("taskform");
-    let selectProject = document.getElementById("select-project");
+    let selectProject = document.querySelector('#select-project');
     // const selectProject = taskForm.childNodes[0].childNodes[1];
-    let selectPriority = document.getElementById("select-priority");
-    // const selectPriority = taskForm.childNodes[1].childNodes[1];s
+    let selectPriority = document.querySelector('#select-priority');
+    // const selectPriority = taskForm.childNodes[1].childNodes[1];
     const dateDiv = document.getElementById("dateDiv"); 
     const noteText = document.getElementById("note");
     const addTaskBtn = document.getElementById("tsk-btn");
@@ -848,8 +848,8 @@ const taskFormEvent = () => {
             alert('Task button clicked');
             const date = dateDiv.value;
             // const date = `${year}-${month}-${day}`;
-            let project = getSelectedOption(selectProject).value;
-            let priority = getSelectedOption(selectPriority).value;
+            let project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
+            let priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
             taskObj['project'] = project;
             taskObj['priority'] = priority;
             taskObj['date'] = date;
