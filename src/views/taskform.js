@@ -36,7 +36,7 @@ const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
 
 const projectSelect = (projectsArr) => selectDiv('select', 'button', 'project', projects(1, projectsArr), icon1);
 const prioritySelect = (prioritiesArr) => selectDiv('select', 'button', 'priority', priorities(1, prioritiesArr), icon2);
-const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT);
+const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT, 'Schedule');
 
 const noteDiv = () => {
     const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
@@ -49,11 +49,11 @@ const noteDiv = () => {
 const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
-const taskformDiv = (projectsArr, prioritiesArr, start, len) => {
+const taskformDiv = (projectsArr, prioritiesArr) => {
     const taskformDiv = createElem('div', 'taskform'); 
     taskformDiv.appendChild(projectSelect(projectsArr));
     taskformDiv.appendChild(prioritySelect(prioritiesArr));
-    taskformDiv.appendChild(schedule(calendarDiv(start, len).innerHTML));
+    taskformDiv.appendChild(schedule(calendarDiv().innerHTML));
     taskformDiv.appendChild(noteDiv());
     taskformDiv.appendChild(addTask);
     return taskformDiv;

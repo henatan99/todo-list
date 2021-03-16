@@ -94,11 +94,16 @@ body {
 .yearDiv, .monthDiv, .week, .dateDiv {
     display: block;
 }
-.calendar {
+.schedule {
     width: 14rem;
+    display: inline;
 }
 
-.calendar:hover .schedule {
+.div-schedule {
+    display: none;
+}
+
+.schedulebtn:hover .div-schedule{
     display: block;
 }
 

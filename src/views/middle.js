@@ -7,9 +7,9 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const middleDiv = (projectsArr, prioritiesArr, start, len) => {
+const middleDiv = (projectsArr, prioritiesArr) => {
     const midDiv = createElem('div', 'middle');
-    midDiv.appendChild(taskformDiv(projectsArr, prioritiesArr, start, len));
+    midDiv.appendChild(taskformDiv(projectsArr, prioritiesArr));
     return midDiv;
 }
 

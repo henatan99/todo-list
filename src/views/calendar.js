@@ -34,31 +34,22 @@ monthDiv.appendChild(selectMonth);
 const weekDiv = createElem('div', 'weekDiv');
 weekDiv.innerHTML = weekBtns;
 
-// var yearText = $('#selectYear').find(":selected").text();
-// var year = parseInt(yearText);
-// var month = $('#selectMonth').find(":selected").text();
-
-// const yearText = getSelectedOption(selectYear);
-// const month = getSelectedOption(selectMonth);
-
-
-const dateCells = (start, len) => {    
+const dateCells = () => {    
     let dateStr = '';
-    for(let i=1; i <= 35; i+=1) {
-        let fill = (i > start && i <= (start + len)) ? i - start : '';
-        dateStr += `<button id="cell${i}" class="cell">${fill}</button>`;
+    for(let i=1; i <= 38; i+=1) {
+        dateStr += `<button id="cell${i}" class="cell"></button>`;
     }
     const dateDiv = createElem('div', 'dateDiv');
     dateDiv.innerHTML = dateStr;
     return dateDiv;
 }
 
-const calendarDiv = (start, len) => {
+const calendarDiv = () => {
     const calendarDiv = createElem('div', 'calendar');
     calendarDiv.appendChild(yearDiv);
     calendarDiv.appendChild(monthDiv);
     calendarDiv.appendChild(weekDiv);
-    calendarDiv.appendChild(dateCells(start, len));
+    calendarDiv.appendChild(dateCells());
     return calendarDiv;
 }
 

@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: block;\n}\n.calendar {\n    width: 14rem;\n}\n\n.calendar:hover .schedule {\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: block;\n}\n.schedule {\n    width: 14rem;\n    display: inline;\n}\n\n.div-schedule {\n    display: none;\n}\n\n.schedulebtn:hover .div-schedule{\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -496,9 +496,9 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const middleDiv = (projectsArr, prioritiesArr, start, len) => {
+const middleDiv = (projectsArr, prioritiesArr) => {
     const midDiv = createElem('div', 'middle');
-    midDiv.appendChild((0,_taskform_js__WEBPACK_IMPORTED_MODULE_0__.default)(projectsArr, prioritiesArr, start, len));
+    midDiv.appendChild((0,_taskform_js__WEBPACK_IMPORTED_MODULE_0__.default)(projectsArr, prioritiesArr));
     return midDiv;
 }
 
@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskformDiv)
 /* harmony export */ });
-/* harmony import */ var _copy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 
 
 const createElem = (tag, name) => {
@@ -524,7 +524,7 @@ const createElem = (tag, name) => {
 
 const icon1 = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
 const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
-const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
+// const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
 
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) return `<option value="project${projectsArr.length}">Project ${projectsArr.length}</option>`;
@@ -551,7 +551,7 @@ const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
 
 const projectSelect = (projectsArr) => selectDiv('select', 'button', 'project', projects(1, projectsArr), icon1);
 const prioritySelect = (prioritiesArr) => selectDiv('select', 'button', 'priority', priorities(1, prioritiesArr), icon2);
-const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT);
+const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT, 'Schedule');
 
 const noteDiv = () => {
     const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
@@ -564,11 +564,11 @@ const noteDiv = () => {
 const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
-const taskformDiv = (projectsArr, prioritiesArr, start, len) => {
+const taskformDiv = (projectsArr, prioritiesArr) => {
     const taskformDiv = createElem('div', 'taskform'); 
     taskformDiv.appendChild(projectSelect(projectsArr));
     taskformDiv.appendChild(prioritySelect(prioritiesArr));
-    taskformDiv.appendChild(schedule((0,_copy__WEBPACK_IMPORTED_MODULE_0__.default)(start, len).innerHTML));
+    taskformDiv.appendChild(schedule((0,_calendar__WEBPACK_IMPORTED_MODULE_0__.default)().innerHTML));
     taskformDiv.appendChild(noteDiv());
     taskformDiv.appendChild(addTask);
     return taskformDiv;
@@ -623,35 +623,24 @@ monthDiv.appendChild(selectMonth);
 const weekDiv = createElem('div', 'weekDiv');
 weekDiv.innerHTML = weekBtns;
 
-// var yearText = $('#selectYear').find(":selected").text();
-// var year = parseInt(yearText);
-// var month = $('#selectMonth').find(":selected").text();
-
-// const yearText = getSelectedOption(selectYear);
-// const month = getSelectedOption(selectMonth);
-
-
-const dateCells = (start, len) => {    
+const dateCells = () => {    
     let dateStr = '';
-    for(let i=1; i <= 35; i+=1) {
-        let fill = (i > start && i <= (start + len)) ? i - start : '';
-        dateStr += `<button id="cell${i}" class="cell">${fill}</button>`;
+    for(let i=1; i <= 38; i+=1) {
+        dateStr += `<button id="cell${i}" class="cell"></button>`;
     }
     const dateDiv = createElem('div', 'dateDiv');
     dateDiv.innerHTML = dateStr;
     return dateDiv;
 }
 
-const calendarDiv = (start, len) => {
+const calendarDiv = () => {
     const calendarDiv = createElem('div', 'calendar');
     calendarDiv.appendChild(yearDiv);
     calendarDiv.appendChild(monthDiv);
     calendarDiv.appendChild(weekDiv);
-    calendarDiv.appendChild(dateCells(start, len));
+    calendarDiv.appendChild(dateCells());
     return calendarDiv;
 }
-
-
 
 
 
@@ -736,6 +725,64 @@ function getSelectedOption(sel) {
         }
     }
     return opt;
+}
+
+
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ calendarEvent)
+/* harmony export */ });
+/* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _fillCells__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+
+
+
+
+const calendarEvent = () => {
+    const selectMonth = document.getElementById("selectMonth");
+    const selectYear = document.getElementById("selectYear");
+
+    selectMonth.addEventListener('change', (event) => {
+        const result = document.querySelector('.result');
+        const month = event.target.value;
+        const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectYear).value;
+        const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
+        const fillcells = (0,_fillCells__WEBPACK_IMPORTED_MODULE_2__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
+    });
+
+    selectYear.addEventListener('change', (event) => {
+        const result = document.querySelector('.result');
+        const year = event.target.value;
+        const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectMonth).value;
+        const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
+        const fillcells = (0,_fillCells__WEBPACK_IMPORTED_MODULE_2__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
+    });
+}
+
+
+
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ fillCells)
+/* harmony export */ });
+const fillCells = (start, len, dateDivId) => {
+    let dateDiv = document.getElementById(dateDivId);
+    let dateCells = dateDiv.childNodes;
+    for(let i=1; i <= 38; i+=1) {
+        let fill = (i > start && i <= (start + len)) ? i - start : '';
+        dateCells[i-1].innerText = fill;
+    }
 }
 
 
@@ -850,7 +897,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_left_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var _views_middle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var _views_copy_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
+/* harmony import */ var _views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
+/* harmony import */ var _views_getoption__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
+
 
 
 
@@ -870,15 +919,12 @@ front.setAttribute('id', 'front');
 
 let projectsArr = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'];
 let prioritiesArr = ['Priority1', 'Priority2', 'Priority3', 'Priority4', 'Priority5'];
-const start =5;
-const len = 31;
 
 front.appendChild(_views_left_js__WEBPACK_IMPORTED_MODULE_3__.default);
-front.appendChild((0,_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default)(projectsArr, prioritiesArr, start, len));
+front.appendChild((0,_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default)(projectsArr, prioritiesArr));
 
 container.appendChild(front);
-
-
+(0,_views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__.default)();
 
 
 })();
