@@ -805,16 +805,16 @@ const date = () => {
     const dateBtn = document.getElementById("dateDiv");
 
     const dateVal = {'year': '', 'month': '', 'day': ''};
-    dateBtn.addEventListener('click', (event) => {
-        // const elem = event.target;
+    dateBtn.addEventListener('click', (event) => {       
         const elem = event.target;
-        alert(elem);
-        const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectMonth).value;
-        const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectYear).value;
-        dateVal['day'] = elem.innerText;
-        dateVal['month'] = month;
-        dateVal['year'] = year;
-        alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
+        if (elem.classList.contains('cell') && elem.innerText != '') {
+            const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectMonth).value;
+            const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectYear).value;
+            dateVal['day'] = elem.innerText;
+            dateVal['month'] = month;
+            dateVal['year'] = year;
+            alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
+        }   
     });
 }
 

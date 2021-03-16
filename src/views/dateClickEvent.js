@@ -8,13 +8,15 @@ const date = () => {
 
     const dateVal = {'year': '', 'month': '', 'day': ''};
     dateBtn.addEventListener('click', (event) => {       
-        const elem = event.target;        
-        const month = getSelectedOption(selectMonth).value;
-        const year = getSelectedOption(selectYear).value;
-        dateVal['day'] = elem.innerText;
-        dateVal['month'] = month;
-        dateVal['year'] = year;
-        alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
+        const elem = event.target;
+        if (elem.classList.contains('cell') && elem.innerText != '') {
+            const month = getSelectedOption(selectMonth).value;
+            const year = getSelectedOption(selectYear).value;
+            dateVal['day'] = elem.innerText;
+            dateVal['month'] = month;
+            dateVal['year'] = year;
+            alert (`year: ${dateVal['year']}, month: ${dateVal['month']}, ${dateVal['day']}`);
+        }   
     });
 }
 
