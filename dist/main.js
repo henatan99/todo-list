@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: none;\n}\n.calendar {\n    width: 14rem;\n}\n\n.calendar:hover .schedule {\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: block;\n}\n.calendar {\n    width: 14rem;\n}\n\n.calendar:hover .schedule {\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -462,18 +462,17 @@ const leftDiv = createElem('div', 'left');
 const radioFrom = createElem('form', 'radioform');
 
 
-const projectList = (projects = []) => {
-    const defaultProjects = ['Today', 'Tomorrow', 'This Week', 'Home', 'Personal', 'Work', 'Fitness'];
-    defaultProjects.push(projects);
+const projectList = (projects) => {    
+    
     let radioItems;
-    for (let i=0; i<defaultProjects.length; i+=1) {
-        radioItems += radioItem(`radio${i+1}`, 'projects', `${defaultProjects[i]}`, `${defaultProjects[i]}`);
+    for (let i=0; i<projects.length; i+=1) {
+        radioItems += radioItem(`radio${i+1}`, 'projects', `${projects[i]}`, `${projects[i]}`);
     }
     return radioItems;
 }
 
-
-radioFrom.innerHTML = projectList();
+const defaultProjects = ['Today', 'Tomorrow', 'This Week', 'Home', 'Personal', 'Work', 'Fitness'];
+radioFrom.innerHTML = projectList(defaultProjects);
 leftDiv.appendChild(radioFrom);
 
 
@@ -497,8 +496,11 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const middleDiv = createElem('div', 'middle');
-middleDiv.appendChild(_taskform_js__WEBPACK_IMPORTED_MODULE_0__.default);
+const middleDiv = (projectsArr, prioritiesArr, start, len) => {
+    const midDiv = createElem('div', 'middle');
+    midDiv.appendChild((0,_taskform_js__WEBPACK_IMPORTED_MODULE_0__.default)(projectsArr, prioritiesArr, start, len));
+    return midDiv;
+}
 
 
 
@@ -510,47 +512,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskformDiv)
 /* harmony export */ });
-/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _copy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 
 
-const taskformDiv = document.createElement('div');
-taskformDiv.classList.add('taskform');
-taskformDiv.setAttribute('id', 'taskform');
-
-const defProjects = '<option value="home">Home</option><option value="personal">Personal</option>' +
-'<option value="work">Work</option><option value="fitness">Fitness</option><option value="Shopping">Home</option>';
-let projects = defProjects;
-const addProjects = (projects, project) => {
-    projects += project;
+const createElem = (tag, name) => {
+    let elem = document.createElement(tag);
+    elem.classList.add(name);
+    elem.setAttribute('id', name);
+    return elem;
 }
 
-const priorities = (i=1, max) => {
-    if (i == max) return `<option value="priority${max}">Priority ${max}</option>`;
-    return `<option value="priority${i}">Priority ${i}</option>` + priorities(i+1, max);    
+const icon1 = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
+const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
+const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
+
+const projects = (i=1, projectsArr) => {
+    if (i == projectsArr.length) return `<option value="project${projectsArr.length}">Project ${projectsArr.length}</option>`;
+    return `<option value="project${i}">Project ${i}</option>` + projects(i+1, projectsArr);    
+}
+
+const priorities = (i=1, priorityArr) => {
+    if (i == priorityArr.length) return `<option value="priority${priorityArr.length}">Priority ${priorityArr.length}</option>`;
+    return `<option value="priority${i}">Priority ${i}</option>` + priorities(i+1, priorityArr);    
 }
 
 const title = '<input type="text" id="title" name="title" ><br>';
 
-const projectSelect = '<select name="project-select" id="project-select">' + projects + '</select>'
-const projectbtn = '<button id ="projectbtn" class="projectbtn"> <span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span> </button>';
-const project = `<div id="project" class="project">${projectbtn}${projectSelect}</div>`;
+const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
+    const select = createElem(`${oTag}`, `${oTag}-${name}`);
+    select.innerHTML = innerT;
+    const selectbtn = createElem(`${iTag}`, `${iTag}-${name}`);
+    selectbtn.innerHTML = innerIcon; 
+    const selectDiv = createElem('div', `${name}`);
+    selectDiv.appendChild(selectbtn);
+    selectDiv.appendChild(select);
+    return selectDiv;
+}
 
-let myPriorities = priorities(1, 10);
-const prioritySelect = '<select name="priority-select" id="priority-select">' + myPriorities + '</select>';
-const prioritybtn = '<button id="prioritybtn" class="priorityrtn"> <span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span> </button>';
+const projectSelect = (projectsArr) => selectDiv('select', 'button', 'project', projects(1, projectsArr), icon1);
+const prioritySelect = (prioritiesArr) => selectDiv('select', 'button', 'priority', priorities(1, prioritiesArr), icon2);
+const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT);
 
-const priority = `<div id="priority" class="priority">${prioritybtn}${prioritySelect}</div>`;
+const noteDiv = () => {
+    const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
+    const note = '<textfield id="note" class="note" placeholder="Write todo description"></textfield>'
+    const notediv = createElem('div', 'notediv');
+    notediv.innerHTML = notebtn + note;
+    return notediv;
+}
 
+const addTask = createElem('button', 'tsk-btn');
+addTask.innerText = 'Add Task'; 
 
-const schedulebtn = '<button id="schedulebtn" class="schedulebtn">Schedule</button>';
-const schedule = `<div id="schedule" class="schedule">${schedulebtn}${_calendar__WEBPACK_IMPORTED_MODULE_0__.default}<div>`;
-
-const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
-
-const addTask = '<button id="task-btn" class="tsk-btn">Add Task</button>';
-const note = '<textfield id="note" class="note" placeholder="Write todo description"></textfield>'
-
-taskformDiv.innerHTML = title + schedule + note + project + priority + addTask;
+const taskformDiv = (projectsArr, prioritiesArr, start, len) => {
+    const taskformDiv = createElem('div', 'taskform'); 
+    taskformDiv.appendChild(projectSelect(projectsArr));
+    taskformDiv.appendChild(prioritySelect(prioritiesArr));
+    taskformDiv.appendChild(schedule((0,_copy__WEBPACK_IMPORTED_MODULE_0__.default)(start, len).innerHTML));
+    taskformDiv.appendChild(noteDiv());
+    taskformDiv.appendChild(addTask);
+    return taskformDiv;
+}
 
 
 
@@ -564,72 +586,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ calendarDiv)
 /* harmony export */ });
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 
 
-const week = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-const year = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
 
-const yearOptions = (i=0, year) => {
-    if (i == 9) return `<option value="${year[9]}" >${year[9]}</option>`;
-    return `<option value="${year[i]}" >${year[i]}</option>` + yearOptions(i+1, year);
+const createElem = (tag, name) => {
+    let elem = document.createElement(tag);
+    elem.classList.add(name);
+    elem.setAttribute('id', name);
+    return elem;
 }
 
-const years = yearOptions(0, year);
-const yearDiv = (years) => {
-    return `<div id="yearDiv" class="yearDiv"> <select id="selectYear">${years}</select></div>`;
+const elems = (i=0, optElem, tag) => {
+    if (i == optElem.length - 1) return `<${tag} value="${optElem[optElem.length - 1]}" id="${optElem[optElem.length - 1]}" class="${optElem[optElem.length - 1]}">${optElem[optElem.length - 1]}</${tag}>`;
+    return `<${tag} value="${optElem[i]}" id="${optElem[i]}" class="${optElem[i]}">${optElem[i]}</${tag}>` + elems(i+1, optElem, tag);
 }
 
-const monthOptions = (i=0, month) => {
-    if (i == 11) return `<option value="${month[11]}" >${month[11]}</option>`;
-    return `<option value="${month[i]}" >${month[i]}</option>` + monthOptions(i+1, month);
-}
+const years = [2020, 2021, 2022, 2023, 2024, 2025];
+const weeks = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const monthKeys = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const yearOptions = elems(0, years, 'option');
+const monthOptions = elems(0, months, 'option');
+const weekBtns = elems (0, weeks, 'button');
 
-const months = monthOptions(0, monthKeys);
-const monthDiv = (months) => {
-    return `<div id="monthDiv" class="monthDiv"> <select>${months}</select></div>`;
-}
 
-const dateCells = (i = 1) => {
-    if (i == 35) return `<button id="cell${35}" class="cell"></button>`;
-    return `<button id="cell${i}" class="cell"></button>` + dateCells(i+1);
-}
+const selectYear = createElem('select', 'selectYear');
+selectYear.innerHTML = yearOptions;
+const selectMonth = createElem('select', 'selectMonth');
+selectMonth.innerHTML = monthOptions;
 
-const weekDiv = (i=0, week) => {
-    if (i == 6) return `<button id="${week[6]}" class="week">${week[6]}</button>`;
-    return `<button id="${week[i]}" class="week">${week[i]}</button>` + weekDiv(i+1, week);
-}
+const yearDiv = createElem('div', 'yearDiv');
+yearDiv.appendChild(selectYear);
+const monthDiv = createElem('div', 'monthDiv');
+monthDiv.appendChild(selectMonth);
+const weekDiv = createElem('div', 'weekDiv');
+weekDiv.innerHTML = weekBtns;
 
-const yeardiv = yearDiv(years);
-const monthdiv = monthDiv(months);
-const weekdiv = weekDiv(0, week);
-const datecells = dateCells();
-const dateDiv = `<div id="dateDiv" class="dateDiv">${datecells}</div>`;
+// var yearText = $('#selectYear').find(":selected").text();
+// var year = parseInt(yearText);
+// var month = $('#selectMonth').find(":selected").text();
 
-let yearSelect = document.querySelector('selectYear');
-let yearMonth = document.querySelector('selectMonth');
+// const yearText = getSelectedOption(selectYear);
+// const month = getSelectedOption(selectMonth);
 
-var selectYear = $('#selectYear').find(":selected").text();
-var selectMonth = $('#selectMonth').find(":selected").text();
 
-const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(selectYear, selectMonth);
-const monthObj = calendar.monthObj();
-
-const filldateCells = (calendar) => {
-    let month = calendar.month;
-    let month_info = calendar.monthObj(month);
-    let start = month_info[1];
-    const length = month_info[0];
-    for (let i=0; i<length; i+=1) {
-        let cell = document.getElementById(`cell${start+i}`);
-        cell.innerText = "i+1";
+const dateCells = (start, len) => {    
+    let dateStr = '';
+    for(let i=1; i <= 35; i+=1) {
+        let fill = (i > start && i <= (start + len)) ? i - start : '';
+        dateStr += `<button id="cell${i}" class="cell">${fill}</button>`;
     }
+    const dateDiv = createElem('div', 'dateDiv');
+    dateDiv.innerHTML = dateStr;
+    return dateDiv;
 }
 
-filldateCells(calendar);
+const calendarDiv = (start, len) => {
+    const calendarDiv = createElem('div', 'calendar');
+    calendarDiv.appendChild(yearDiv);
+    calendarDiv.appendChild(monthDiv);
+    calendarDiv.appendChild(weekDiv);
+    calendarDiv.appendChild(dateCells(start, len));
+    return calendarDiv;
+}
 
-const calendarDiv = `<div id="calendar" class="calendar"> ${yeardiv}${monthdiv}${weekdiv}${dateDiv}</div>`;
+
+
 
 
 
@@ -669,17 +692,52 @@ function Calendar(year, month) {
       'December': [31, year % 4 == 0 ? (dayone + 6) % 7 : (dayone + 5) % 7],
     };
   };
+
+  this.monthInfo = () => {
+    return this.monthObj()[month];
+  };
+
+  this.start = () => {
+    return this.monthInfo()[1];
+  };
+
+  this.monthDays = () => {
+    return this.monthInfo()[0];
+  };
 }
 
 
 
-
-
-// const calendar = new Calendar(2097, "January");
+// const calendar = new Calendar(2020, "February");
 // console.log(calendar.year);
 // console.log(calendar.month);
 // console.log(calendar.dayone());
 // console.log(calendar.monthObj());
+// console.log(calendar.monthInfo());
+// console.log(calendar.start());
+// console.log(calendar.monthDays());
+
+
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getSelectedOption)
+/* harmony export */ });
+function getSelectedOption(sel) {
+    var opt;
+    for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+        opt = sel.options[i];
+        if ( opt.selected === true ) {
+            break;
+        }
+    }
+    return opt;
+}
+
 
 
 /***/ })
@@ -791,6 +849,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_images_photo_jpeg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _views_left_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var _views_middle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
+/* harmony import */ var _views_copy_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
+
+
 
 
 
@@ -806,10 +868,18 @@ const front  = document.createElement('div');
 front.classList.add('front');
 front.setAttribute('id', 'front');
 
+let projectsArr = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'];
+let prioritiesArr = ['Priority1', 'Priority2', 'Priority3', 'Priority4', 'Priority5'];
+const start =5;
+const len = 31;
+
 front.appendChild(_views_left_js__WEBPACK_IMPORTED_MODULE_3__.default);
-front.appendChild(_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default);
+front.appendChild((0,_views_middle_js__WEBPACK_IMPORTED_MODULE_4__.default)(projectsArr, prioritiesArr, start, len));
 
 container.appendChild(front);
+
+
+
 
 })();
 

@@ -1,68 +1,65 @@
 import Calendar from '../classes/calendar';
+import getSelectedOption from './getoption';
 
-const week = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-const year = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030];
-
-const yearOptions = (i=0, year) => {
-    if (i == 9) return `<option value="${year[9]}" >${year[9]}</option>`;
-    return `<option value="${year[i]}" >${year[i]}</option>` + yearOptions(i+1, year);
+const createElem = (tag, name) => {
+    let elem = document.createElement(tag);
+    elem.classList.add(name);
+    elem.setAttribute('id', name);
+    return elem;
 }
 
-const years = yearOptions(0, year);
-const yearDiv = (years) => {
-    return `<div id="yearDiv" class="yearDiv"> <select id="selectYear">${years}</select></div>`;
+const elems = (i=0, optElem, tag) => {
+    if (i == optElem.length - 1) return `<${tag} value="${optElem[optElem.length - 1]}" id="${optElem[optElem.length - 1]}" class="${optElem[optElem.length - 1]}">${optElem[optElem.length - 1]}</${tag}>`;
+    return `<${tag} value="${optElem[i]}" id="${optElem[i]}" class="${optElem[i]}">${optElem[i]}</${tag}>` + elems(i+1, optElem, tag);
 }
 
-const monthOptions = (i=0, month) => {
-    if (i == 11) return `<option value="${month[11]}" >${month[11]}</option>`;
-    return `<option value="${month[i]}" >${month[i]}</option>` + monthOptions(i+1, month);
-}
+const years = [2020, 2021, 2022, 2023, 2024, 2025];
+const weeks = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const monthKeys = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const yearOptions = elems(0, years, 'option');
+const monthOptions = elems(0, months, 'option');
+const weekBtns = elems (0, weeks, 'button');
 
-const months = monthOptions(0, monthKeys);
-const monthDiv = (months) => {
-    return `<div id="monthDiv" class="monthDiv"> <select>${months}</select></div>`;
-}
 
-const dateCells = (i = 1) => {
-    if (i == 35) return `<button id="cell${35}" class="cell"></button>`;
-    return `<button id="cell${i}" class="cell"></button>` + dateCells(i+1);
-}
+const selectYear = createElem('select', 'selectYear');
+selectYear.innerHTML = yearOptions;
+const selectMonth = createElem('select', 'selectMonth');
+selectMonth.innerHTML = monthOptions;
 
-const weekDiv = (i=0, week) => {
-    if (i == 6) return `<button id="${week[6]}" class="week">${week[6]}</button>`;
-    return `<button id="${week[i]}" class="week">${week[i]}</button>` + weekDiv(i+1, week);
-}
+const yearDiv = createElem('div', 'yearDiv');
+yearDiv.appendChild(selectYear);
+const monthDiv = createElem('div', 'monthDiv');
+monthDiv.appendChild(selectMonth);
+const weekDiv = createElem('div', 'weekDiv');
+weekDiv.innerHTML = weekBtns;
 
-const yeardiv = yearDiv(years);
-const monthdiv = monthDiv(months);
-const weekdiv = weekDiv(0, week);
-const datecells = dateCells();
-const dateDiv = `<div id="dateDiv" class="dateDiv">${datecells}</div>`;
+// var yearText = $('#selectYear').find(":selected").text();
+// var year = parseInt(yearText);
+// var month = $('#selectMonth').find(":selected").text();
 
-let yearSelect = document.querySelector('selectYear');
-let yearMonth = document.querySelector('selectMonth');
+// const yearText = getSelectedOption(selectYear);
+// const month = getSelectedOption(selectMonth);
 
-var selectYear = $('#selectYear').find(":selected").text();
-var selectMonth = $('#selectMonth').find(":selected").text();
 
-const calendar = new Calendar(selectYear, selectMonth);
-const monthObj = calendar.monthObj();
-
-const filldateCells = (calendar) => {
-    let month = calendar.month;
-    let month_info = calendar.monthObj(month);
-    let start = month_info[1];
-    const length = month_info[0];
-    for (let i=0; i<length; i+=1) {
-        let cell = document.getElementById(`cell${start+i}`);
-        cell.innerText = "i+1";
+const dateCells = (start, len) => {    
+    let dateStr = '';
+    for(let i=1; i <= 35; i+=1) {
+        let fill = (i > start && i <= (start + len)) ? i - start : '';
+        dateStr += `<button id="cell${i}" class="cell">${fill}</button>`;
     }
+    const dateDiv = createElem('div', 'dateDiv');
+    dateDiv.innerHTML = dateStr;
+    return dateDiv;
 }
 
-filldateCells(calendar);
-
-const calendarDiv = `<div id="calendar" class="calendar"> ${yeardiv}${monthdiv}${weekdiv}${dateDiv}</div>`;
+const calendarDiv = (start, len) => {
+    const calendarDiv = createElem('div', 'calendar');
+    calendarDiv.appendChild(yearDiv);
+    calendarDiv.appendChild(monthDiv);
+    calendarDiv.appendChild(weekDiv);
+    calendarDiv.appendChild(dateCells(start, len));
+    return calendarDiv;
+}
 
 export {calendarDiv as default};

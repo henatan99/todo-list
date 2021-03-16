@@ -7,7 +7,10 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const middleDiv = createElem('div', 'middle');
-middleDiv.appendChild(taskformDiv);
+const middleDiv = (projectsArr, prioritiesArr, start, len) => {
+    const midDiv = createElem('div', 'middle');
+    midDiv.appendChild(taskformDiv(projectsArr, prioritiesArr, start, len));
+    return midDiv;
+}
 
 export { middleDiv as default };

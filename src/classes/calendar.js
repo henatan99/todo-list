@@ -26,14 +26,28 @@ function Calendar(year, month) {
       'December': [31, year % 4 == 0 ? (dayone + 6) % 7 : (dayone + 5) % 7],
     };
   };
+
+  this.monthInfo = () => {
+    return this.monthObj()[month];
+  };
+
+  this.start = () => {
+    return this.monthInfo()[1];
+  };
+
+  this.monthDays = () => {
+    return this.monthInfo()[0];
+  };
 }
 
 export {Calendar as default};
 
-
-
-// const calendar = new Calendar(2097, "January");
+// const calendar = new Calendar(2020, "February");
 // console.log(calendar.year);
 // console.log(calendar.month);
 // console.log(calendar.dayone());
 // console.log(calendar.monthObj());
+// console.log(calendar.monthInfo());
+// console.log(calendar.start());
+// console.log(calendar.monthDays());
+

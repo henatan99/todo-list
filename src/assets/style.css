@@ -92,7 +92,7 @@ body {
 /* calendar */
 
 .yearDiv, .monthDiv, .week, .dateDiv {
-    display: none;
+    display: block;
 }
 .calendar {
     width: 14rem;
