@@ -138,8 +138,26 @@ body {
 
 .description, .date, .priorityl, .projectl {
     width: 20%;
-    height: 3rem;
-    border-radius: 1rem;
-    background: red;
+    height: 2rem;
+    color: white;
+    border-radius: 1.5rem;
+    background: rgb(73, 58, 58);
     padding: 1rem 0 1rem 3rem;
+}
+
+.todobody::before {
+    content:'\2713';
+    font-size: 5rem;
+    color: white;
+    display:inline-block;
+    width: 6rem;
+    height: 6rem;
+    height: fit-content;
+    background: rgb(65, 115, 224);
+    text-align: center;
+    /* padding: 1rem; */
+    margin-right: 1rem;
+    border-radius: 3rem;
+    justify-content: center;
+    align-self:center;    
 }

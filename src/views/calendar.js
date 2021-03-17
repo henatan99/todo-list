@@ -1,6 +1,7 @@
 import Calendar from '../classes/calendar';
 import getSelectedOption from './getoption';
 import fillCells from './fillCells';
+import toDay from '../classes/timenow';
 
 const createElem = (tag, name) => {
     let elem = document.createElement(tag);
@@ -51,7 +52,8 @@ const calendarDiv = () => {
     calendarDiv.appendChild(yearDiv);
     calendarDiv.appendChild(monthDiv);
     calendarDiv.appendChild(weekDiv);
-    calendarDiv.appendChild(dateCells());    
+    calendarDiv.appendChild(dateCells());
+    
     return calendarDiv;
 }
 

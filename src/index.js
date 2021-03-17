@@ -26,6 +26,7 @@ front.appendChild(leftDiv);
 front.appendChild(middleDiv(projectsArr, prioritiesArr));
 
 container.appendChild(front);
+
 calendarEvent();
 date();
 taskFormEvent();

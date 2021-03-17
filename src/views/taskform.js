@@ -62,7 +62,7 @@ const taskformDiv = (projectsArr, prioritiesArr) => {
     taskformDiv.appendChild(prioritySelect(prioritiesArr));
     taskformDiv.appendChild(schedule(calendarDiv().innerHTML));
     taskformDiv.appendChild(noteDiv());
-    taskformDiv.appendChild(addTask);
+    taskformDiv.appendChild(addTask);    
     return taskformDiv;
 }
 

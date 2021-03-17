@@ -10,11 +10,9 @@ Date.prototype.timeNow = function () {
 
 const toDay = () => {
     var newDate = new Date();
-    var datetime = "LastSync: " + newDate.today() + " @ " + newDate.timeNow();
+    var datetime = newDate.today();
     return datetime;
 }
 
-console.log(toDay());
-
-// export {toDay as default}; 
+export {toDay as default}; 
 
