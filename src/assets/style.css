@@ -121,3 +121,20 @@ body {
     color: white;
     background: black;
 }
+
+.todoDiv {
+    /* background: red; */
+}
+
+.title {
+    background: rgb(233, 217, 217);
+}
+
+.todobody {
+    display: flex;
+    flex-direction: row;
+}
+
+.description, .date, .priority, .project {
+    width: 20%;
+}

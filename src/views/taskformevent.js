@@ -1,4 +1,7 @@
 import getSelectedOption from './getoption';
+import Todo from '../classes/todo';
+import Store from '../classes/store';
+
 const taskFormEvent = () => {
     const taskForm = document.getElementById("taskform");
     let selectProject = document.querySelector('#select-project');
@@ -9,24 +12,24 @@ const taskFormEvent = () => {
     const noteText = document.getElementById("note");
     const addTaskBtn = document.getElementById("tsk-btn");
 
-    const taskObj = {'project': '', 'priority': '', 'date': ''};
+    const taskObj = new Todo();
     taskForm.addEventListener('click', (event) => {
         const elem = event.target;
         if(elem.classList.contains('tsk-btn')) {
             alert('Task button clicked');
-            const date = dateDiv.value;
-            // const date = `${year}-${month}-${day}`;
+            let date = dateDiv.value;
+            
             let project = getSelectedOption(selectProject).value;
             let priority = getSelectedOption(selectPriority).value;
-            taskObj['project'] = project;
-            taskObj['priority'] = priority;
-            taskObj['date'] = date;
-            alert(`project: ${taskObj['project']}, priority: ${taskObj['priority']}, date: ${taskObj['date']}`);
+            taskObj.project = project;
+            taskObj.priority = priority;
+            taskObj.date = date;
+            alert(`project: ${taskObj.project}, priority: ${taskObj.priority}, date: ${taskObj.date}`);
             alert('nononono...');
-        }     
+            Store.addTodo(taskObj);
+        }
 
     });
-    // alert(`project: ${taskObj['project']}, priority: ${taskObj['priority']}, date: ${taskObj['day']}`);
 }
 
 export {taskFormEvent as default};

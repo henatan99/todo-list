@@ -16,7 +16,7 @@ const date = () => {
             dateVal['day'] = elem.innerText;
             dateVal['month'] = month;
             dateVal['year'] = year;
-            dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year'] = year}`;
+            dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year']}`;
             alert(dateBtn.value);                                  
         }        
     });    

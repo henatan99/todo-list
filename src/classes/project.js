@@ -1,4 +1,2 @@
-const project = (name, todos) => {
-    
-}
+
 

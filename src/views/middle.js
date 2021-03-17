@@ -1,4 +1,6 @@
 import taskformDiv from './taskform.js';
+import listAppend from './todolist';
+import Store from '../classes/store';
 
 const createElem = (tag, name) => {
     let elem = document.createElement(tag);
@@ -10,6 +12,7 @@ const createElem = (tag, name) => {
 const middleDiv = (projectsArr, prioritiesArr) => {
     const midDiv = createElem('div', 'middle');
     midDiv.appendChild(taskformDiv(projectsArr, prioritiesArr));
+    midDiv.appendChild(listAppend(Store.getTodos()));
     return midDiv;
 }
 

@@ -8,6 +8,7 @@ import calendarEvent from './views/calendarevent.js';
 import getSelectedOption from './views/getoption';
 import date from './views/dateClickEvent';
 import taskFormEvent from './views/taskformevent';
+import Store from './classes/store';
 
 const container = document.getElementById("container");
 
@@ -28,4 +29,6 @@ container.appendChild(front);
 calendarEvent();
 date();
 taskFormEvent();
+
+console.log(Store.getTodos());
 

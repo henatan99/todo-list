@@ -40,9 +40,9 @@ const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT, 'Sch
 
 const noteDiv = () => {
     const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
-    const note = '<textfield id="note" class="note" placeholder="Write todo description"></textfield>'
+    const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
     const notediv = createElem('div', 'notediv');
-    notediv.innerHTML = notebtn + note;
+    notediv.innerHTML = notebtn + note;    
     return notediv;
 }
 

@@ -15,29 +15,29 @@ class Store {
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    static removeTodo(priority) {
+    static removeTodo(title) {
         const todos = Store.getTodos();
         todos.forEach((todo, index) => {
-          if (todo.priority === priority) {
+          if (todo.title === title) {
             todos.splice(index, 1);
           }
         });
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    static editTodo(priority, title, project, description, date) {
+    static editTodo(title, description, date, priority, project) {
         const books = Store.getBooks();
         books.forEach((todo) => {
           if (todo.priority === priority) {
             todo.title = title;
-            todo.project = project;
             todo.description = description;
-            todo.date = date;
+            todo.date = date;         
             todo.priority = priority;
+            todo.project = project; 
           }
         });
         localStorage.setItem('books', JSON.stringify(books));
     }
-
-
 }
+
+export {Store as default};
