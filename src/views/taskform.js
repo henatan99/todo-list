@@ -1,4 +1,5 @@
 import calendarDiv from './calendar';
+import fillCells from './fillCells';
 
 const createElem = (tag, name) => {
     let elem = document.createElement(tag);
@@ -21,7 +22,11 @@ const priorities = (i=1, priorityArr) => {
     return `<option value="priority${i}">Priority ${i}</option>` + priorities(i+1, priorityArr);    
 }
 
-const title = '<input type="text" id="title" name="title" ><br>';
+const titleElem = document.createElement('div');
+titleElem.classList.add('titleElem');
+titleElem.setAttribute('id', 'titleElem');
+
+titleElem.innerHTML = '<input type="text" id="title" name="title" placeholder="Title"><br>';
 
 const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
     const select = createElem(`${oTag}`, `${oTag}-${name}`);
@@ -50,7 +55,9 @@ const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
-    const taskformDiv = createElem('div', 'taskform'); 
+    const taskformDiv = createElem('div', 'taskform');
+
+    taskformDiv.appendChild(titleElem);
     taskformDiv.appendChild(projectSelect(projectsArr));
     taskformDiv.appendChild(prioritySelect(prioritiesArr));
     taskformDiv.appendChild(schedule(calendarDiv().innerHTML));

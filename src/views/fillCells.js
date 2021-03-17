@@ -1,4 +1,4 @@
-const fillCells = (start, len, dateDivId) => {
+const fillCells = (start = 5, len = 29, dateDivId) => {
     let dateDiv = document.getElementById(dateDivId);
     let dateCells = dateDiv.childNodes;
     for(let i=1; i <= 38; i+=1) {

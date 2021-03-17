@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: 50%;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: block;\n}\n\n.dateDiv {\n    width: 14rem;\n}\n\n.schedule {\n    width: fit-content;\n    display: inline;\n}\n\n.div-schedule {\n    /* display: none; */\n}\n\n.schedulebtn:hover .div-schedule{\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}\n\n.cell:focus {\n    color: white;\n    background: black;\n}\n\n.todoDiv {\n    /* background: red; */\n}\n\n.title {\n    background: rgb(233, 217, 217);\n}\n\n.todobody {\n    display: flex;\n    flex-direction: row;\n}\n\n.description, .date, .priority, .project {\n    width: 20%;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    overflow-y: scroll;\n}\n\n/* The code below corresponds to navbar.js */\n\n.navBarNav {\n    width: 100%;\n    height: 5rem;\n    border: 1px solid rgb(182, 108, 108);\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    background: rgb(126, 46, 10);    \n}\n\n.profileDiv {\n    width: 15%;\n    border-right: 1px solid;\n    height: 5rem;\n    display: flex;\n    flex-flow: wrap;\n    justify-content: space-around;\n    align-items: center;\n    /* padding: 1rem; */\n    padding: 0 1rem 0 1rem;\n}\n\n.profileImgDiv {\n    width: 4rem;\n    height: 4rem;\n    background: rgb(165, 175, 122);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    object-fit: cover;\n    border-radius: 2rem;\n    overflow: hidden;\n}\n\n.profileImg {\n    width: 4rem;\n    height: 4rem;\n}\n\n.userNameSpan {\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    color: white;\n}\n\n\n.task-btn {\n    font-size: 1rem;\n    padding: 1rem 2rem 1rem 2rem;\n    margin-right: 3rem;\n}\n\n.front {\n    width: 100%;\n    display: flex;\n    flex-direction: row;    \n}\n\n.left {\n    width: 15%;\n    background: white;\n}\n\n.middle {\n    width: 85%;\n}\n\n.taskform {\n    width: fit-content;\n    border: 1px solid;\n    padding: 1rem 2rem 1rem 2rem;\n    border-radius: 0.5rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n}\n\n/* calendar */\n\n.yearDiv, .monthDiv, .week, .dateDiv {\n    display: block;\n}\n\n.dateDiv {\n    width: 14rem;\n}\n\n.schedule {\n    width: fit-content;\n    display: inline;\n}\n\n.div-schedule {\n    /* display: none; */\n}\n\n.schedulebtn:hover .div-schedule{\n    display: block;\n}\n\n.cell, .week {\n    width: 2rem;\n    height: 1.5rem;\n}\n\n.cell:focus {\n    color: white;\n    background: black;\n}\n\n.todoDiv {\n    /* background: red; */\n}\n\n.title {\n    background: rgb(233, 217, 217);\n}\n\n.todobody {\n    display: flex;\n    flex-direction: row;\n}\n\n.description, .date, .priorityl, .projectl {\n    width: 20%;\n    height: 3rem;\n    border-radius: 1rem;\n    background: red;\n    padding: 1rem 0 1rem 3rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -487,8 +487,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ middleDiv)
 /* harmony export */ });
 /* harmony import */ var _taskform_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
-/* harmony import */ var _todolist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _todolist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 
 
 
@@ -518,6 +518,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ taskformDiv)
 /* harmony export */ });
 /* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _fillCells__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+
 
 
 const createElem = (tag, name) => {
@@ -541,7 +543,11 @@ const priorities = (i=1, priorityArr) => {
     return `<option value="priority${i}">Priority ${i}</option>` + priorities(i+1, priorityArr);    
 }
 
-const title = '<input type="text" id="title" name="title" ><br>';
+const titleElem = document.createElement('div');
+titleElem.classList.add('titleElem');
+titleElem.setAttribute('id', 'titleElem');
+
+titleElem.innerHTML = '<input type="text" id="title" name="title" placeholder="Title"><br>';
 
 const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
     const select = createElem(`${oTag}`, `${oTag}-${name}`);
@@ -570,7 +576,9 @@ const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
-    const taskformDiv = createElem('div', 'taskform'); 
+    const taskformDiv = createElem('div', 'taskform');
+
+    taskformDiv.appendChild(titleElem);
     taskformDiv.appendChild(projectSelect(projectsArr));
     taskformDiv.appendChild(prioritySelect(prioritiesArr));
     taskformDiv.appendChild(schedule((0,_calendar__WEBPACK_IMPORTED_MODULE_0__.default)().innerHTML));
@@ -592,6 +600,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _fillCells__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+
 
 
 
@@ -644,7 +654,7 @@ const calendarDiv = () => {
     calendarDiv.appendChild(yearDiv);
     calendarDiv.appendChild(monthDiv);
     calendarDiv.appendChild(weekDiv);
-    calendarDiv.appendChild(dateCells());
+    calendarDiv.appendChild(dateCells());    
     return calendarDiv;
 }
 
@@ -741,9 +751,28 @@ function getSelectedOption(sel) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ fillCells)
+/* harmony export */ });
+const fillCells = (start = 5, len = 29, dateDivId) => {
+    let dateDiv = document.getElementById(dateDivId);
+    let dateCells = dateDiv.childNodes;
+    for(let i=1; i <= 38; i+=1) {
+        let fill = (i > start && i <= (start + len)) ? i - start : '';
+        dateCells[i-1].innerText = fill;
+    }
+}
+
+
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ listAppend)
 /* harmony export */ });
-/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 
 
 const listDiv = document.createElement('div');
@@ -758,7 +787,7 @@ const listAppend = (todos) => {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -774,9 +803,9 @@ const toDo = (todo) => {
     const titleElem = `<h1 class="title">${todo.title}</h1>`;
     
     const descriptionElem = `<p class="description">${todo.description}</p>`;
-    const dateElem = `<span class="date">${todo.date}</span>`;
-    const priorityElem = `<h2 class="priority">${todo.priority}</h2>`;
-    const projectElem = `<h2 class="project">${todo.project}</h2>`;
+    const dateElem = `<h2 class="date">${todo.date}</h2>`;
+    const priorityElem = `<h2 class="priorityl">${todo.priority}</h2>`;
+    const projectElem = `<h2 class="projectl">${todo.project}</h2>`;
 
     const bodyDiv = '<div class="todobody">' + descriptionElem + dateElem + priorityElem + projectElem + '</div>';
     todoDiv.innerHTML = titleElem + bodyDiv;
@@ -787,7 +816,7 @@ const toDo = (todo) => {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -839,7 +868,7 @@ class Store {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -848,7 +877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var _fillCells__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(17);
+/* harmony import */ var _fillCells__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 
 
 
@@ -872,25 +901,6 @@ const calendarEvent = () => {
     });
 }
 
-
-
-
-/***/ }),
-/* 17 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ fillCells)
-/* harmony export */ });
-const fillCells = (start, len, dateDivId) => {
-    let dateDiv = document.getElementById(dateDivId);
-    let dateCells = dateDiv.childNodes;
-    for(let i=1; i <= 38; i+=1) {
-        let fill = (i > start && i <= (start + len)) ? i - start : '';
-        dateCells[i-1].innerText = fill;
-    }
-}
 
 
 
@@ -939,30 +949,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
 /* harmony import */ var _classes_todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
-/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 
 
 
 
 const taskFormEvent = () => {
     const taskForm = document.getElementById("taskform");
+    let title = document.querySelector('#title');
     let selectProject = document.querySelector('#select-project');
     // const selectProject = taskForm.childNodes[0].childNodes[1];
     let selectPriority = document.querySelector('#select-priority');
     // const selectPriority = taskForm.childNodes[1].childNodes[1];
-    const dateDiv = document.getElementById("dateDiv"); 
-    const noteText = document.getElementById("note");
-    const addTaskBtn = document.getElementById("tsk-btn");
+    let dateDiv = document.getElementById("dateDiv"); 
+    let noteText = document.getElementById("note");
+    let addTaskBtn = document.getElementById("tsk-btn");
 
     const taskObj = new _classes_todo__WEBPACK_IMPORTED_MODULE_1__.default();
     taskForm.addEventListener('click', (event) => {
         const elem = event.target;
         if(elem.classList.contains('tsk-btn')) {
             alert('Task button clicked');
+            let titl = title.value;
             let date = dateDiv.value;
-            
+            let desc = noteText.value;
             let project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
             let priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
+            taskObj.title = titl;
+            taskObj.description = 
             taskObj.project = project;
             taskObj.priority = priority;
             taskObj.date = date;
@@ -1106,11 +1120,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_left_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var _views_middle_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var _views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(16);
+/* harmony import */ var _views_calendarevent_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(17);
 /* harmony import */ var _views_getoption__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12);
 /* harmony import */ var _views_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(18);
 /* harmony import */ var _views_taskformevent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(19);
-/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(15);
+/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(16);
 
 
 

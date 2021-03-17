@@ -7,9 +7,9 @@ const toDo = (todo) => {
     const titleElem = `<h1 class="title">${todo.title}</h1>`;
     
     const descriptionElem = `<p class="description">${todo.description}</p>`;
-    const dateElem = `<span class="date">${todo.date}</span>`;
-    const priorityElem = `<h2 class="priority">${todo.priority}</h2>`;
-    const projectElem = `<h2 class="project">${todo.project}</h2>`;
+    const dateElem = `<h2 class="date">${todo.date}</h2>`;
+    const priorityElem = `<h2 class="priorityl">${todo.priority}</h2>`;
+    const projectElem = `<h2 class="projectl">${todo.project}</h2>`;
 
     const bodyDiv = '<div class="todobody">' + descriptionElem + dateElem + priorityElem + projectElem + '</div>';
     todoDiv.innerHTML = titleElem + bodyDiv;
