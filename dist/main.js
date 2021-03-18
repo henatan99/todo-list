@@ -434,8 +434,7 @@ __webpack_require__.r(__webpack_exports__);
 // todosDiv.setAttribute('id', 'todos');
 
 function listTodos(todos) {
-    todos.forEach((todoObj) => (0,_todos__WEBPACK_IMPORTED_MODULE_0__.default)(todoObj, '#todos'));
-    
+    todos.forEach((todoObj) => (0,_todos__WEBPACK_IMPORTED_MODULE_0__.default)(todoObj, '#todos'));    
 }
 
 
@@ -569,6 +568,65 @@ const calendarEvent = () => {
 
 
 
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ listProjects)
+/* harmony export */ });
+function appendProject(projectObj, projectsId) {
+    const projects = document.querySelector(projectsId); 
+    
+    const project = document.createElement('li');
+    project.classList.add('project');
+    project.setAttribute('id', 'project');    
+    project.textContent = `${projectObj}`;  
+    projects.appendChild(project);  
+}
+
+function listProjects(projects) {
+    projects.forEach((project) => appendProject(project, '#projects'));    
+}
+
+
+
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ date)
+/* harmony export */ });
+/* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+
+
+
+const date = () => {
+    const selectMonth = document.getElementById("selectMonth");
+    const selectYear = document.getElementById("selectYear");
+    const dateBtn = document.getElementById("dateDiv");
+    dateBtn.getAttribute('name', 'datediv');
+
+    const dateVal = {'year': '', 'month': '', 'day': ''};
+    dateBtn.addEventListener('click', (event) => {       
+        const elem = event.target;
+        if (elem.classList.contains('cell') && elem.innerText != '') {
+            const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectMonth).value;
+            const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectYear).value;
+            dateVal['day'] = elem.innerText;
+            dateVal['month'] = month;
+            dateVal['year'] = year;
+            dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year']}`;
+            alert(dateBtn.value);                                  
+        }        
+    });    
+}
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -629,12 +687,14 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _views_taskform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _views_taskformevent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _views1_taskform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _views1_taskformevent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _views1_listTodos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 /* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
 /* harmony import */ var _views1_removeTodoEvent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
-/* harmony import */ var _views_calevent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
+/* harmony import */ var _views1_calevent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
+/* harmony import */ var _views1_left__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(14);
+/* harmony import */ var _views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(15);
 // import './assets/style.css';
 // import navBar from './views/navbar';
 // import profileImg from './assets/images/photo.jpeg';
@@ -680,14 +740,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 const container = document.getElementById("container");
 
 let projectsArr = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'];
 let prioritiesArr = ['Priority1', 'Priority2', 'Priority3', 'Priority4', 'Priority5'];
 
-container.appendChild((0,_views_taskform__WEBPACK_IMPORTED_MODULE_0__.default)(projectsArr, prioritiesArr));
-(0,_views_taskformevent__WEBPACK_IMPORTED_MODULE_1__.default)();
-(0,_views_calevent__WEBPACK_IMPORTED_MODULE_5__.default)();
+container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_0__.default)(projectsArr, prioritiesArr));
+(0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_1__.default)();
+(0,_views1_calevent__WEBPACK_IMPORTED_MODULE_5__.default)();
+(0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_7__.default)();
+
+
+
+const leftDiv = document.createElement('ul');
+leftDiv.classList.add('left');
+leftDiv.setAttribute('id', "projects");
+container.appendChild(leftDiv);
+
+const projects = ["Project 1", "Project 2", "Project3"];
+(0,_views1_left__WEBPACK_IMPORTED_MODULE_6__.default)(projects);
 
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");

@@ -4,8 +4,7 @@ import appendTodo from './todos';
 // todosDiv.setAttribute('id', 'todos');
 
 function listTodos(todos) {
-    todos.forEach((todoObj) => appendTodo(todoObj, '#todos'));
-    
+    todos.forEach((todoObj) => appendTodo(todoObj, '#todos'));    
 }
 
 export {listTodos as default};

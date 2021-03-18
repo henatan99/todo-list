@@ -36,12 +36,14 @@
 // deleteTodo();
 // addTaskEvent();
 // console.log(Store.getTodos());
-import taskformDiv from './views/taskform';
-import taskFormEvent from './views/taskformevent';
+import taskformDiv from './views1/taskform';
+import taskFormEvent from './views1/taskformevent';
 import listTodos from './views1/listTodos';
 import Store from './classes/store';
 import removeTodo from './views1/removeTodoEvent';
-import calendarEvent from './views/calevent';
+import calendarEvent from './views1/calevent';
+import listProjects from './views1/left';
+import date from './views1/dateClickEvent';
 
 const container = document.getElementById("container");
 
@@ -51,6 +53,17 @@ let prioritiesArr = ['Priority1', 'Priority2', 'Priority3', 'Priority4', 'Priori
 container.appendChild(taskformDiv(projectsArr, prioritiesArr));
 taskFormEvent();
 calendarEvent();
+date();
+
+
+
+const leftDiv = document.createElement('ul');
+leftDiv.classList.add('left');
+leftDiv.setAttribute('id', "projects");
+container.appendChild(leftDiv);
+
+const projects = ["Project 1", "Project 2", "Project3"];
+listProjects(projects);
 
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");
