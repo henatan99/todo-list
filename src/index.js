@@ -44,6 +44,7 @@ import removeTodo from './views1/removeTodoEvent';
 import calendarEvent from './views1/calevent';
 import listProjects from './views1/left';
 import date from './views1/dateClickEvent';
+import removeProject from './views1/removeProject';
 
 const container = document.getElementById("container");
 
@@ -61,6 +62,8 @@ const leftDiv = document.createElement('ul');
 leftDiv.classList.add('left');
 leftDiv.setAttribute('id', "projects");
 container.appendChild(leftDiv);
+
+removeProject();
 
 const projects = ["Project 1", "Project 2", "Project3"];
 listProjects(projects);

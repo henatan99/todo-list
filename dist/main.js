@@ -582,7 +582,15 @@ function appendProject(projectObj, projectsId) {
     const project = document.createElement('li');
     project.classList.add('project');
     project.setAttribute('id', 'project');    
-    project.textContent = `${projectObj}`;  
+    project.textContent = `${projectObj}`;
+    
+    const projectbtn = document.createElement('button');
+    projectbtn.classList.add('project-btn');
+    projectbtn.setAttribute('type', 'click');
+    projectbtn.textContent='delete';
+
+    project.appendChild(projectbtn);
+
     projects.appendChild(project);  
 }
 
@@ -624,6 +632,33 @@ const date = () => {
         }        
     });    
 }
+
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ removeProject)
+/* harmony export */ });
+/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+
+function removeProject() {
+    document.querySelector('#projects').addEventListener('click', (e) => {
+        const btn = e.target;
+        if (btn.classList.contains('project-btn')) {
+            const project = btn.parentElement;            
+            // let todoId = todo.getAttribute('value');
+
+            // alert(todoId);
+            project.remove();
+            // Store.removeTodo(parseInt(todoId));   
+        }
+    });
+}
+
 
 
 
@@ -695,6 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views1_calevent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
 /* harmony import */ var _views1_left__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(14);
 /* harmony import */ var _views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(15);
+/* harmony import */ var _views1_removeProject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16);
 // import './assets/style.css';
 // import navBar from './views/navbar';
 // import profileImg from './assets/images/photo.jpeg';
@@ -742,6 +778,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const container = document.getElementById("container");
 
 let projectsArr = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'];
@@ -758,6 +795,8 @@ const leftDiv = document.createElement('ul');
 leftDiv.classList.add('left');
 leftDiv.setAttribute('id', "projects");
 container.appendChild(leftDiv);
+
+(0,_views1_removeProject__WEBPACK_IMPORTED_MODULE_8__.default)();
 
 const projects = ["Project 1", "Project 2", "Project3"];
 (0,_views1_left__WEBPACK_IMPORTED_MODULE_6__.default)(projects);

@@ -4,7 +4,15 @@ function appendProject(projectObj, projectsId) {
     const project = document.createElement('li');
     project.classList.add('project');
     project.setAttribute('id', 'project');    
-    project.textContent = `${projectObj}`;  
+    project.textContent = `${projectObj}`;
+    
+    const projectbtn = document.createElement('button');
+    projectbtn.classList.add('project-btn');
+    projectbtn.setAttribute('type', 'click');
+    projectbtn.textContent='delete';
+
+    project.appendChild(projectbtn);
+
     projects.appendChild(project);  
 }
 
