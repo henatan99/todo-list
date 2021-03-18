@@ -15,10 +15,10 @@ class Store {
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    static removeTodo(title) {
+    static removeTodo(id) {
         const todos = Store.getTodos();
         todos.forEach((todo, index) => {
-          if (todo.title === title) {
+          if (todo.id == id) {
             todos.splice(index, 1);
           }
         });
@@ -26,7 +26,7 @@ class Store {
     }
 
     static editTodo(title, description, date, priority, project) {
-        const books = Store.getBooks();
+        const todos = Store.getBooks();
         books.forEach((todo) => {
           if (todo.priority === priority) {
             todo.title = title;
@@ -37,6 +37,10 @@ class Store {
           }
         });
         localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static clearTodo() {
+      let todos = Store.getTodos();
     }
 }
 
