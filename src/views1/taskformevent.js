@@ -34,7 +34,7 @@ const taskFormEvent = () => {
             // alert('Task button clicked');
             if (formWraper.style.display == 'none') {
                 formWraper.style.display == 'flex';                
-            }            
+                        
 
             let titl = title.value;
             let date = dateDiv.value;
@@ -56,7 +56,10 @@ const taskFormEvent = () => {
             let tods = document.getElementById("todos");
             // tods.innerHTML = '';          
             listTodos(Store.getTodos());
-            formWraper.style.display = 'none';
+            }
+            else {
+                formWraper.style.display = 'none';
+            }
         }
     });
 }

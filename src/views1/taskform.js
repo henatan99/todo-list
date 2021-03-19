@@ -42,10 +42,10 @@ newProject.setAttribute('id', 'newproject');
 newProject.setAttribute('type', 'text');
 newProject.placeholder = 'New Project';
 
-const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
+// const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
 const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
 const notediv = createElem('div', 'notediv');
-notediv.innerHTML = notebtn + note;    
+notediv.innerHTML = note;    
 
 
 const addTask = createElem('button', 'tsk-btn');

@@ -1,18 +1,25 @@
 body {
-    margin: 0;
+    margin: 0;    
 }
 
 #container {
     width: 100%;
     height: 100vh;
     background: rgb(185, 179, 179);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 20rem;
 }
-
+.task-form {
+    margin-top: 30rem;
+}
 .formwrapper {
-    /* display: none; */
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
 }
 
 .front {
@@ -22,10 +29,55 @@ body {
 
 .left {
     list-style: none;
-    width: 20%;
+    width: 25%;
+    background: rgb(231, 100, 100);
+    margin-right: 3%;
+}
+
+#projects {
+    width: 72%;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+   
+    padding-inline-start: 0;
 }
 
 .project {
     display: flex;
     flex-direction: row;
+}
+
+.projecttext {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    background: rgb(218, 154, 154);
+}
+
+#todos {
+    background: rgb(136, 123, 123);
+}
+
+.todo {
+    border-bottom: 1px solid;
+}
+
+.todo-item {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+#calendar {
+    width: 18rem;
+}
+
+.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {
+    width: 2.5rem;
+}
+
+.cell {
+    width: 2.5rem;
+    height: 2rem;
 }

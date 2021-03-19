@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    overflow-y: scroll;\n    display: flex;\n    flex-direction: column;\n}\n\n.formwrapper {\n    /* display: none; */\n}\n\n.front {\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 20%;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 20rem;\n}\n.task-form {\n    margin-top: 30rem;\n}\n.formwrapper {\n    display: none;\n    /* display: flex; */\n    flex-direction: column;\n}\n\n.front {\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n#todos {\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 18rem;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 2.5rem;\n}\n\n.cell {\n    width: 2.5rem;\n    height: 2rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -444,10 +444,10 @@ newProject.setAttribute('id', 'newproject');
 newProject.setAttribute('type', 'text');
 newProject.placeholder = 'New Project';
 
-const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
+// const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
 const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
 const notediv = createElem('div', 'notediv');
-notediv.innerHTML = notebtn + note;    
+notediv.innerHTML = note;    
 
 
 const addTask = createElem('button', 'tsk-btn');
@@ -721,7 +721,7 @@ const taskFormEvent = () => {
             // alert('Task button clicked');
             if (formWraper.style.display == 'none') {
                 formWraper.style.display == 'flex';                
-            }            
+                        
 
             let titl = title.value;
             let date = dateDiv.value;
@@ -743,7 +743,10 @@ const taskFormEvent = () => {
             let tods = document.getElementById("todos");
             // tods.innerHTML = '';          
             (0,_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos());
-            formWraper.style.display = 'none';
+            }
+            else {
+                formWraper.style.display = 'none';
+            }
         }
     });
 }
@@ -1065,6 +1068,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ removeProject)
 /* harmony export */ });
 /* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _classes_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
+
+
 
 function removeProject() {
     document.querySelector('#projects').addEventListener('click', (e) => {
@@ -1072,10 +1078,16 @@ function removeProject() {
         if (btn.classList.contains('project-btn')) {
             const project = btn.parentElement;            
             // let todoId = todo.getAttribute('value');
-
-            // alert(todoId);
-            project.remove();
-            // Store.removeTodo(parseInt(todoId));   
+            const projectName = project.childNodes[0].textContent;
+            let projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);
+            alert(projectTodos);
+            alert(project.childNodes[0]);
+            alert(projectName);
+            // alert(todoId);            
+            for (let i=0; i<projectTodos.length; i+=1) {                
+                _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(projectTodos[i].id);             
+            }
+            project.remove();              
         }
     });
 }
