@@ -43,14 +43,18 @@ container.addEventListener('click', (e) => {
     if(elem.classList.contains('plusbutton')) {
         if (form != null) {
             form.remove();
+            elem.textContent = '+';
         }
-        container.appendChild(taskformDiv(projectsArr, prioritiesArr));
+        else {
+            container.appendChild(taskformDiv(projectsArr, prioritiesArr));
         
-        taskFormEvent();
-        calendarEvent();
-        date();        
-        let calendar = new Calendar(2021, 'January');
-        fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');       
+            taskFormEvent();
+            calendarEvent();
+            date();        
+            let calendar = new Calendar(2021, 'January');
+            fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
+            elem.textContent = '-';    
+        }           
     }
 })
 

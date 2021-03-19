@@ -12,11 +12,13 @@ body {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    padding-top: 5rem;
+    padding-top: 1rem;
 }
 
 .taskform {
-    position: relative;
+    position: fixed;
+    background: rgb(129, 161, 126);    
+    padding: 1rem;
 }
 .formwrapper {
     /* display: none; */
@@ -102,14 +104,16 @@ body {
 }
 
 #calendar {
-    width: 18rem;
+    width: 130px;
 }
 
 .Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {
-    width: 2.5rem;
+    width: 18px;
+    font-size: 8px;
 }
 
 .cell {
-    width: 2.5rem;
-    height: 2rem;
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
 }
