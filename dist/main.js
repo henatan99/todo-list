@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 20rem;\n}\n.task-form {\n    margin-top: 30rem;\n}\n.formwrapper {\n    display: none;\n    /* display: flex; */\n    flex-direction: column;\n}\n\n.front {\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n#todos {\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 18rem;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 2.5rem;\n}\n\n.cell {\n    width: 2.5rem;\n    height: 2rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 5rem;\n}\n.task-form {\n    /* margin-top: 30rem; */\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 60%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 60%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 18rem;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 2.5rem;\n}\n\n.cell {\n    width: 2.5rem;\n    height: 2rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -416,16 +416,16 @@ const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-in
 
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) {
-        return `<option value="project${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
+        return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
     } 
-    return `<option value="project${projectsArr[i]}">Project ${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
+    return `<option value="${projectsArr[i]}">${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
 }
 
 const projectSelect = createElem('select', 'project-select');
 
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="priority${priorityArr[priorityArr.length-1]}">Priority ${priorityArr[priorityArr.length-1]}</option>`;
-    return `<option value="priority${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
+    if (i == priorityArr.length) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
+    return `<option value="${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
 
 const prioritySelect = createElem('select', 'priority-select');
@@ -718,10 +718,7 @@ const taskFormEvent = () => {
     taskForm.addEventListener('click', (event) => {
         const elem = event.target;
         if(elem.classList.contains('tsk-btn')) {
-            // alert('Task button clicked');
-            if (formWraper.style.display == 'none') {
-                formWraper.style.display == 'flex';                
-                        
+            // alert('Task button clicked');          
 
             let titl = title.value;
             let date = dateDiv.value;
@@ -741,12 +738,10 @@ const taskFormEvent = () => {
             _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.addTodo(taskObj);
 
             let tods = document.getElementById("todos");
-            // tods.innerHTML = '';          
+            tods.innerHTML = '';
+        
             (0,_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos());
-            }
-            else {
-                formWraper.style.display = 'none';
-            }
+            
         }
     });
 }
@@ -1364,24 +1359,50 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const container = document.getElementById("container");
+const navBar = document.createElement('navbar');
+navBar.classList.add('navbar');
+container.appendChild(navBar);
+
+const plusButton = document.createElement('button');
+plusButton.type = 'click';
+plusButton.classList.add('plusbutton');
+plusButton.setAttribute('id', 'plusbutton');
+plusButton.textContent = '+';
+
+
+
+navBar.appendChild(plusButton);
 
 let projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects();
-projectsArr.push('Add');
 
 let prioritiesArr = ['High', 'Medium', 'Low'];
 
-container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_1__.default)(projectsArr, prioritiesArr));
-(0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_2__.default)();
-(0,_views1_calevent__WEBPACK_IMPORTED_MODULE_6__.default)();
-(0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();
+
+
+container.addEventListener('click', (e) => {
+    let elem = e.target;
+    let form = document.querySelector('#taskform');
+    if(elem.classList.contains('plusbutton')) {
+        if (form != null) {
+            form.remove();
+        }
+        container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_1__.default)(projectsArr, prioritiesArr));
+        (0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_2__.default)();
+        (0,_views1_calevent__WEBPACK_IMPORTED_MODULE_6__.default)();
+        (0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();        
+        let calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_13__.default(2021, 'January');
+        (0,_views1_fillCells__WEBPACK_IMPORTED_MODULE_11__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
+    }
+})
 // newProjectEvent();
 // let toDaty = toDay().split('/');
-let calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_13__.default(2021, 'January');
+
 // let months = Object.keys(calendar.monthObj());
 // let month = months[toDaty[1]];
 // let monthly = calendar.monthObj()[month];
-(0,_views1_fillCells__WEBPACK_IMPORTED_MODULE_11__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
+
 // defaultCal();
 
 const front = document.createElement('div');
@@ -1401,9 +1422,13 @@ console.log(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
 
 (0,_views1_removeProject__WEBPACK_IMPORTED_MODULE_9__.default)();
 
+const middle = document.createElement('div');
+middle.classList.add('middle');
+
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");
-front.appendChild(todoDiv);
+middle.appendChild(todoDiv);
+front.appendChild(middle);
 
 (0,_views1_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
 (0,_views1_removeTodoEvent__WEBPACK_IMPORTED_MODULE_5__.default)();

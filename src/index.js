@@ -52,25 +52,51 @@ import toDay from './classes/timenow';
 import Calendar from './classes/calendar';
 import projectEvent from './views1/projectEvent';
 import newProjectEvent from './views1/projectSelectEvent';
+import { pl } from 'date-fns/locale';
 
 const container = document.getElementById("container");
+const navBar = document.createElement('navbar');
+navBar.classList.add('navbar');
+container.appendChild(navBar);
+
+const plusButton = document.createElement('button');
+plusButton.type = 'click';
+plusButton.classList.add('plusbutton');
+plusButton.setAttribute('id', 'plusbutton');
+plusButton.textContent = '+';
+
+
+
+navBar.appendChild(plusButton);
 
 let projectsArr = Filter.allProjects();
-projectsArr.push('Add');
 
 let prioritiesArr = ['High', 'Medium', 'Low'];
 
-container.appendChild(taskformDiv(projectsArr, prioritiesArr));
-taskFormEvent();
-calendarEvent();
-date();
+
+
+container.addEventListener('click', (e) => {
+    let elem = e.target;
+    let form = document.querySelector('#taskform');
+    if(elem.classList.contains('plusbutton')) {
+        if (form != null) {
+            form.remove();
+        }
+        container.appendChild(taskformDiv(projectsArr, prioritiesArr));
+        taskFormEvent();
+        calendarEvent();
+        date();        
+        let calendar = new Calendar(2021, 'January');
+        fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
+    }
+})
 // newProjectEvent();
 // let toDaty = toDay().split('/');
-let calendar = new Calendar(2021, 'January');
+
 // let months = Object.keys(calendar.monthObj());
 // let month = months[toDaty[1]];
 // let monthly = calendar.monthObj()[month];
-fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
+
 // defaultCal();
 
 const front = document.createElement('div');
@@ -90,9 +116,13 @@ listProjects(projectsArr);
 
 removeProject();
 
+const middle = document.createElement('div');
+middle.classList.add('middle');
+
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");
-front.appendChild(todoDiv);
+middle.appendChild(todoDiv);
+front.appendChild(middle);
 
 listTodos(Store.getTodos());
 removeTodo();

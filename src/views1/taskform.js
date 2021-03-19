@@ -14,16 +14,16 @@ const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-in
 
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) {
-        return `<option value="project${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
+        return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
     } 
-    return `<option value="project${projectsArr[i]}">Project ${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
+    return `<option value="${projectsArr[i]}">${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
 }
 
 const projectSelect = createElem('select', 'project-select');
 
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="priority${priorityArr[priorityArr.length-1]}">Priority ${priorityArr[priorityArr.length-1]}</option>`;
-    return `<option value="priority${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
+    if (i == priorityArr.length) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
+    return `<option value="${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
 
 const prioritySelect = createElem('select', 'priority-select');

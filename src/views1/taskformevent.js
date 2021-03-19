@@ -31,10 +31,7 @@ const taskFormEvent = () => {
     taskForm.addEventListener('click', (event) => {
         const elem = event.target;
         if(elem.classList.contains('tsk-btn')) {
-            // alert('Task button clicked');
-            if (formWraper.style.display == 'none') {
-                formWraper.style.display == 'flex';                
-                        
+            // alert('Task button clicked');          
 
             let titl = title.value;
             let date = dateDiv.value;
@@ -54,12 +51,10 @@ const taskFormEvent = () => {
             Store.addTodo(taskObj);
 
             let tods = document.getElementById("todos");
-            // tods.innerHTML = '';          
+            tods.innerHTML = '';
+        
             listTodos(Store.getTodos());
-            }
-            else {
-                formWraper.style.display = 'none';
-            }
+            
         }
     });
 }
