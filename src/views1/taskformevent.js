@@ -52,6 +52,7 @@ const taskFormEvent = () => {
         
             listTodos(Store.getTodos());
             taskForm.remove();
+            document.querySelector('#plusbutton').textContent = '+';
         }
     });
 }
