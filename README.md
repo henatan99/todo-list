@@ -62,7 +62,6 @@ A local storage based Storage class is applied to store (set), access (get), mod
 - package.json 
 
 ## Live Link
-[Live Link](https://henatan99.github.io/Restaurant-page/)  
 
 ## Authors
 
