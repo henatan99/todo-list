@@ -45,6 +45,7 @@ container.addEventListener('click', (e) => {
             form.remove();
         }
         container.appendChild(taskformDiv(projectsArr, prioritiesArr));
+        
         taskFormEvent();
         calendarEvent();
         date();        

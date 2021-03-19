@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 5rem;\n}\n.task-form {\n    /* margin-top: 30rem; */\n    \n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 60%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 60%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.project-btn {\n    height: 2rem;\n    width: 2rem;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.iconify {\n    z-index: -10;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 18rem;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 2.5rem;\n}\n\n.cell {\n    width: 2.5rem;\n    height: 2rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 5rem;\n}\n\n.taskform {\n    position: relative;\n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 60%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 60%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.project-btn {\n    height: 2rem;\n    width: 2rem;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.iconify {\n    z-index: -10;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 18rem;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 2.5rem;\n}\n\n.cell {\n    width: 2.5rem;\n    height: 2rem;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -410,10 +410,6 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const icon1 = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
-const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
-// const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
-
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) {
         return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
@@ -444,7 +440,6 @@ newProject.setAttribute('id', 'newproject');
 newProject.setAttribute('type', 'text');
 newProject.placeholder = 'New Project';
 
-// const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
 const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
 const notediv = createElem('div', 'notediv');
 notediv.innerHTML = note;    
@@ -471,9 +466,7 @@ const taskformDiv = (projectsArr, prioritiesArr) => {
     
     taskformDiv.appendChild(addTask);
     
-    taskformDiv.style.position = "absolute";
-    taskformDiv.style.top = "0px";
-    taskformDiv.style.left = "0px";
+    
     return taskformDiv;
 }
 
@@ -700,9 +693,7 @@ const taskFormEvent = () => {
     let title = document.querySelector('#title');
     let selectProject = document.querySelector('#project-select');
     let newProject = document.querySelector('#newproject');
-    // const selectProject = taskForm.childNodes[0].childNodes[1];
     let selectPriority = document.querySelector('#priority-select');
-    // const selectPriority = taskForm.childNodes[1].childNodes[1];
     let dateDiv = document.getElementById("dateDiv"); 
     let noteText = document.getElementById("note");
    
@@ -1310,44 +1301,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(7);
 /* harmony import */ var _views1_projectEvent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(22);
 /* harmony import */ var _views1_projectSelectEvent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(24);
-// 
-// import navBar from './views/navbar';
-// import profileImg from './assets/images/photo.jpeg';
-// import leftDiv from './views/left.js';
-// import middleDiv from './views/middle.js';
-// import Calendar from './classes/calendar';
-// import calendarEvent from './views/calendarevent.js';
-// import getSelectedOption from './views/getoption';
-// import date from './views/dateClickEvent';
-// import taskFormEvent from './views/taskformevent';
-// import Store from './classes/store';
-// import addTaskEvent from './views/addTaskEvent';
-// import deleteTodo from './views/deleteTodo';
-
-// const container = document.getElementById("container");
-
-// const nav = navBar (profileImg, 'henatan');
-// container.appendChild(nav);
-
-// const front  = document.createElement('div');
-// front.classList.add('front');
-// front.setAttribute('id', 'front');
-
-// let projectsArr = ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'];
-// let prioritiesArr = ['Priority1', 'Priority2', 'Priority3', 'Priority4', 'Priority5'];
-
-// front.appendChild(leftDiv());
-// front.appendChild(middleDiv(projectsArr, prioritiesArr));
-
-// container.appendChild(front);
-
-
-// calendarEvent();
-// date();
-// taskFormEvent();
-// deleteTodo();
-// addTaskEvent();
-// console.log(Store.getTodos());
 
 
 
@@ -1395,6 +1348,8 @@ container.addEventListener('click', (e) => {
             form.remove();
         }
         container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_1__.default)(projectsArr, prioritiesArr));
+        navBar.appendChild(plusButton);
+
         (0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_2__.default)();
         (0,_views1_calevent__WEBPACK_IMPORTED_MODULE_6__.default)();
         (0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();        
@@ -1402,14 +1357,6 @@ container.addEventListener('click', (e) => {
         (0,_views1_fillCells__WEBPACK_IMPORTED_MODULE_11__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');       
     }
 })
-// newProjectEvent();
-// let toDaty = toDay().split('/');
-
-// let months = Object.keys(calendar.monthObj());
-// let month = months[toDaty[1]];
-// let monthly = calendar.monthObj()[month];
-
-// defaultCal();
 
 const front = document.createElement('div');
 front.classList.add('front');

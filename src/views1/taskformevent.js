@@ -9,9 +9,7 @@ const taskFormEvent = () => {
     let title = document.querySelector('#title');
     let selectProject = document.querySelector('#project-select');
     let newProject = document.querySelector('#newproject');
-    // const selectProject = taskForm.childNodes[0].childNodes[1];
     let selectPriority = document.querySelector('#priority-select');
-    // const selectPriority = taskForm.childNodes[1].childNodes[1];
     let dateDiv = document.getElementById("dateDiv"); 
     let noteText = document.getElementById("note");
    
