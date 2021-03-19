@@ -4,7 +4,11 @@ class Filter {
     static allProjects() {
         let todos = Store.getTodos();
         let allProjects = todos.map(todo => todo.project);
-        return allProjects;
+        allProjects.push('Home');
+        allProjects.push('Work');
+        allProjects.push('Exercise');
+        let uniqueProjects = allProjects.filter((item, i, allProjects) => allProjects.indexOf(item) === i);
+        return uniqueProjects;
     }
 
     static byProject(project) {

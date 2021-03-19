@@ -24,8 +24,11 @@ function appendProject(projectObj, projectsId) {
     projects.appendChild(project);  
 }
 
+
+
 function listProjects(projects) {
-    projects.forEach((project) => appendProject(project, '#projects'));    
+    projects.forEach((project) => appendProject(project, '#projects'));
+    
 }
 
 export {listProjects as default};

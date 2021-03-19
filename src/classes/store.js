@@ -42,6 +42,7 @@ class Store {
     static clearTodo() {
       let todos = Store.getTodos();
     }
+
 }
 
 export {Store as default};

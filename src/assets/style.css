@@ -7,8 +7,25 @@ body {
     height: 100vh;
     background: rgb(185, 179, 179);
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .formwrapper {
     /* display: none; */
+}
+
+.front {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    list-style: none;
+    width: 20%;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
 }

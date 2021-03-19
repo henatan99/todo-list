@@ -51,16 +51,20 @@ import fillCells from './views1/fillCells';
 import toDay from './classes/timenow';
 import Calendar from './classes/calendar';
 import projectEvent from './views1/projectEvent';
+import newProjectEvent from './views1/projectSelectEvent';
 
 const container = document.getElementById("container");
 
 let projectsArr = Filter.allProjects();
+projectsArr.push('Add');
+
 let prioritiesArr = ['High', 'Medium', 'Low'];
 
 container.appendChild(taskformDiv(projectsArr, prioritiesArr));
 taskFormEvent();
 calendarEvent();
 date();
+// newProjectEvent();
 // let toDaty = toDay().split('/');
 let calendar = new Calendar(2021, 'January');
 // let months = Object.keys(calendar.monthObj());
@@ -69,18 +73,26 @@ let calendar = new Calendar(2021, 'January');
 fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
 // defaultCal();
 
+const front = document.createElement('div');
+front.classList.add('front');
+front.getAttribute('id', 'front');
+
+container.appendChild(front);
+
 const leftDiv = document.createElement('ul');
 leftDiv.classList.add('left');
 leftDiv.setAttribute('id', "projects");
-container.appendChild(leftDiv);
+front.appendChild(leftDiv);
 console.log(Store.getTodos());
 
 listProjects(projectsArr);
+
+
 removeProject();
 
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");
-container.appendChild(todoDiv);
+front.appendChild(todoDiv);
 
 listTodos(Store.getTodos());
 removeTodo();

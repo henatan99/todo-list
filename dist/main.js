@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    overflow-y: scroll;\n}\n\n.formwrapper {\n    /* display: none; */\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;\n}\n\n#container {\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    overflow-y: scroll;\n    display: flex;\n    flex-direction: column;\n}\n\n.formwrapper {\n    /* display: none; */\n}\n\n.front {\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 20%;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -416,15 +416,19 @@ const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-in
 
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) {
-        return `<option value="project${projectsArr.length}">${projectsArr[projectsArr.length-1]}</option>` + '<option id="addproject">Add Project</option>';
+        return `<option value="project${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
     } 
-    return `<option value="project${i}">Project ${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
+    return `<option value="project${projectsArr[i]}">Project ${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
 }
 
+const projectSelect = createElem('select', 'project-select');
+
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="priority${priorityArr.length}">Priority ${priorityArr[priorityArr.length-1]}</option>`;
-    return `<option value="priority${i}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
+    if (i == priorityArr.length) return `<option value="priority${priorityArr[priorityArr.length-1]}">Priority ${priorityArr[priorityArr.length-1]}</option>`;
+    return `<option value="priority${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
+
+const prioritySelect = createElem('select', 'priority-select');
 
 const titleElem = document.createElement('div');
 titleElem.classList.add('titleElem');
@@ -432,42 +436,37 @@ titleElem.setAttribute('id', 'titleElem');
 
 titleElem.innerHTML = '<input type="text" id="title" name="title" placeholder="Title"><br>';
 
-const selectDiv = (oTag, iTag, name, innerT, innerIcon='') => {
-    const select = createElem(`${oTag}`, `${oTag}-${name}`);
-    select.innerHTML = innerT;
-    const selectbtn = createElem(`${iTag}`, `${iTag}-${name}`);
-    selectbtn.innerHTML = innerIcon; 
-    const selectDiv = createElem('div', `${name}`);
-    selectDiv.appendChild(selectbtn);
-    selectDiv.appendChild(select);
-    return selectDiv;
-}
 
-const projectSelect = (projectsArr) => selectDiv('select', 'button', 'project', projects(1, projectsArr), icon1);
-const prioritySelect = (prioritiesArr) => selectDiv('select', 'button', 'priority', priorities(1, prioritiesArr), icon2);
-const schedule = (innerT) => selectDiv('div', 'button', 'schedule', innerT, 'Schedule');
 
-const noteDiv = () => {
-    const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
-    const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
-    const notediv = createElem('div', 'notediv');
-    notediv.innerHTML = notebtn + note;    
-    return notediv;
-}
+const newProject = document.createElement('input');
+newProject.classList.add('newproject');
+newProject.setAttribute('id', 'newproject');
+newProject.setAttribute('type', 'text');
+newProject.placeholder = 'New Project';
+
+const notebtn = '<button id="project" class="note"> <span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span></button>';
+const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>'
+const notediv = createElem('div', 'notediv');
+notediv.innerHTML = notebtn + note;    
+
 
 const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
+    projectSelect.innerHTML = projects(1, projectsArr);
+    prioritySelect.innerHTML = priorities(1, prioritiesArr);
+
     const taskformDiv = createElem('div', 'taskform');
     const formWrapper = createElem('div', 'formwrapper');
     taskformDiv.appendChild(formWrapper);
     
     formWrapper.appendChild(titleElem);
-    formWrapper.appendChild(projectSelect(projectsArr));
-    formWrapper.appendChild(prioritySelect(prioritiesArr));
-    formWrapper.appendChild(schedule((0,_calendar__WEBPACK_IMPORTED_MODULE_0__.default)().innerHTML));
-    formWrapper.appendChild(noteDiv());
+    formWrapper.appendChild(projectSelect);
+    formWrapper.appendChild(newProject);
+    formWrapper.appendChild(prioritySelect);
+    formWrapper.appendChild((0,_calendar__WEBPACK_IMPORTED_MODULE_0__.default)());
+    formWrapper.appendChild(notediv);
 
     
     taskformDiv.appendChild(addTask);    
@@ -685,6 +684,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 /* harmony import */ var _classes_todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
 /* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+/* harmony import */ var _listTodos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
+
 
 
 
@@ -693,16 +694,27 @@ const taskFormEvent = () => {
     const taskForm = document.getElementById("taskform");
     const formWraper = document.getElementById("formwrapper");
     let title = document.querySelector('#title');
-    let selectProject = document.querySelector('#select-project');
+    let selectProject = document.querySelector('#project-select');
+    let newProject = document.querySelector('#newproject');
     // const selectProject = taskForm.childNodes[0].childNodes[1];
-    let selectPriority = document.querySelector('#select-priority');
+    let selectPriority = document.querySelector('#priority-select');
     // const selectPriority = taskForm.childNodes[1].childNodes[1];
     let dateDiv = document.getElementById("dateDiv"); 
     let noteText = document.getElementById("note");
-    
-
-
+   
     const taskObj = new _classes_todo__WEBPACK_IMPORTED_MODULE_1__.default();
+
+
+    selectMonth.addEventListener('change', (event) => {        
+        const proj = event.target.value;
+        const projSel = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(proj).value;
+        
+        if (projSel.textContent == 'New') {
+            const newInput = document.createElement('input');
+            newInput.setAttribute('type', 'text');
+        }
+    });
+
     taskForm.addEventListener('click', (event) => {
         const elem = event.target;
         if(elem.classList.contains('tsk-btn')) {
@@ -715,10 +727,12 @@ const taskFormEvent = () => {
             let date = dateDiv.value;
             let desc = noteText.value;
             let project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
+            // let newProjectVal = newProject.textContent;
             let priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
             taskObj.title = titl;
             taskObj.description = desc;
-            taskObj.project = project;
+            taskObj.project = newProject.value == '' ? project : newProject.value;
+            alert(`input: ${newProject.textContent} and ${taskObj.project}`);            
             taskObj.priority = priority;
             taskObj.date = date;
             let todos = _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos();
@@ -726,6 +740,9 @@ const taskFormEvent = () => {
             taskObj.id = id;            
             _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.addTodo(taskObj);
 
+            let tods = document.getElementById("todos");
+            // tods.innerHTML = '';          
+            (0,_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos());
             formWraper.style.display = 'none';
         }
     });
@@ -808,6 +825,7 @@ class Store {
     static clearTodo() {
       let todos = Store.getTodos();
     }
+
 }
 
 
@@ -914,7 +932,6 @@ function removeTodo() {
             const todo = btn.parentElement.parentElement;            
             let todoId = todo.getAttribute('value');
 
-            alert(todoId);
             todo.remove();
             _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(parseInt(todoId));           
         }
@@ -995,8 +1012,11 @@ function appendProject(projectObj, projectsId) {
     projects.appendChild(project);  
 }
 
+
+
 function listProjects(projects) {
-    projects.forEach((project) => appendProject(project, '#projects'));    
+    projects.forEach((project) => appendProject(project, '#projects'));
+    
 }
 
 
@@ -1078,7 +1098,11 @@ class Filter {
     static allProjects() {
         let todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
         let allProjects = todos.map(todo => todo.project);
-        return allProjects;
+        allProjects.push('Home');
+        allProjects.push('Work');
+        allProjects.push('Exercise');
+        let uniqueProjects = allProjects.filter((item, i, allProjects) => allProjects.indexOf(item) === i);
+        return uniqueProjects;
     }
 
     static byProject(project) {
@@ -1154,6 +1178,34 @@ function removeTodos(todos = todosElem) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
+
+/***/ }),
+/* 24 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ newProjectEvent)
+/* harmony export */ });
+function newProjectEvent() {
+    let projectSel = document.querySelector('#project-select');
+    let projectwrapper = document.querySelector('#projectwrapper');
+    projectSel.addEventListener('change', (event) => {        
+        const proj = event.target.value;
+        if (proj == 'Add') {
+            let newProject = document.createElement('input');
+            newProject.classList.add('newproject');
+            newProject.setAttribute('id', 'newproject');
+            newProject.setAttribute('type', 'text');
+            newProject.placeholder = 'New Project';       
+            projectwrapper.appendChild(newProject);
+        }
+    });
+}
+
+
 
 
 
@@ -1244,6 +1296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_timenow__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(10);
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(7);
 /* harmony import */ var _views1_projectEvent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(22);
+/* harmony import */ var _views1_projectSelectEvent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(24);
 // 
 // import navBar from './views/navbar';
 // import profileImg from './assets/images/photo.jpeg';
@@ -1298,15 +1351,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const container = document.getElementById("container");
 
 let projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects();
+projectsArr.push('Add');
+
 let prioritiesArr = ['High', 'Medium', 'Low'];
 
 container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_1__.default)(projectsArr, prioritiesArr));
 (0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_2__.default)();
 (0,_views1_calevent__WEBPACK_IMPORTED_MODULE_6__.default)();
 (0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();
+// newProjectEvent();
 // let toDaty = toDay().split('/');
 let calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_13__.default(2021, 'January');
 // let months = Object.keys(calendar.monthObj());
@@ -1315,18 +1372,26 @@ let calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_13__.default(2021,
 (0,_views1_fillCells__WEBPACK_IMPORTED_MODULE_11__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
 // defaultCal();
 
+const front = document.createElement('div');
+front.classList.add('front');
+front.getAttribute('id', 'front');
+
+container.appendChild(front);
+
 const leftDiv = document.createElement('ul');
 leftDiv.classList.add('left');
 leftDiv.setAttribute('id', "projects");
-container.appendChild(leftDiv);
+front.appendChild(leftDiv);
 console.log(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
 
 (0,_views1_left__WEBPACK_IMPORTED_MODULE_7__.default)(projectsArr);
+
+
 (0,_views1_removeProject__WEBPACK_IMPORTED_MODULE_9__.default)();
 
 const todoDiv = document.createElement('div')
 todoDiv.setAttribute('id', "todos");
-container.appendChild(todoDiv);
+front.appendChild(todoDiv);
 
 (0,_views1_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
 (0,_views1_removeTodoEvent__WEBPACK_IMPORTED_MODULE_5__.default)();
