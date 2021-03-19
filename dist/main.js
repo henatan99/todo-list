@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 1rem;\n}\n\n.taskform {\n    position: fixed;\n    background: rgb(129, 161, 126);    \n    padding: 1rem;\n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 80%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 80%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 30%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.project-btn {\n    height: 2rem;\n    width: 2rem;\n}\n\n.projecttext {\n    font-size: 1.1rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n    padding: 0.5rem;\n    margin-left: 1rem;\n    margin-right: 1rem;\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n\n\n.iconify {\n    z-index: -10;\n}\n\n.todo-item {\n    height: inherit;\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    padding: 0.6rem;\n}\n\n.title {\n    font-size: 1.1rem;\n    font-weight: 700;    \n}\n\n.project, .priority {\n    font-size: 0.8rem;\n}\n\n.description, .date{\n    font-size: 0.8rem;\n}\n\ntable, th, td {\n    border-bottom: 1px solid black;\n}\n\n#calendar {\n    width: 170px;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 24px;\n    font-size: 8px;\n}\n\n.cell {\n    width: 24px;\n    height: 16px;\n    font-size: 8px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n}\n\n#container {\n  position: relative;\n  width: 100%;\n  height: 100vh;\n  background: rgb(185, 179, 179);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 1rem;\n}\n\n.taskform {\n  position: fixed;\n  background: rgb(129, 161, 126);\n  padding: 1rem;\n}\n\n.formwrapper {\n  display: flex;\n  flex-direction: column;\n}\n\n.navbar {\n  width: 80%;\n  height: 4rem;\n  background: black;\n  position: relative;\n}\n\n.plusbutton {\n  position: absolute;\n  top: 0;\n  right: 0;\n}\n\n.front {\n  width: 80%;\n  display: flex;\n  flex-direction: row;\n}\n\n.left {\n  list-style: none;\n  width: 25%;\n  background: rgb(231, 100, 100);\n  margin-right: 3%;\n}\n\n#projects {\n  width: 30%;\n  margin-block-start: 0;\n  margin-block-end: 0;\n  padding-inline-start: 0;\n}\n\n.project {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n}\n\n.project-btn {\n  height: 2rem;\n  width: 2rem;\n}\n\n.projecttext {\n  font-size: 1.1rem;\n  font-family: Arial, Helvetica, sans-serif;\n  width: 80%;\n  background: rgb(218, 154, 154);\n  padding: 0.5rem;\n  margin-left: 1rem;\n  margin-right: 1rem;\n}\n\n.middle {\n  width: 100%;\n  background: rgb(136, 123, 123);\n}\n\n#todos {\n  width: 100%;\n  background: rgb(136, 123, 123);\n}\n\n.todo {\n  border-bottom: 1px solid;\n}\n\n.iconify {\n  z-index: -10;\n}\n\n.todo-item {\n  height: inherit;\n  color: white;\n  font-family: Arial, Helvetica, sans-serif;\n  padding: 0.6rem;\n}\n\n.title {\n  font-size: 1.1rem;\n  font-weight: 700;\n}\n\n.project,\n.priority {\n  font-size: 0.8rem;\n}\n\n.description,\n.date {\n  font-size: 0.8rem;\n}\n\ntable,\nth,\ntd {\n  border-bottom: 1px solid black;\n}\n\n#calendar {\n  width: 170px;\n}\n\n.Mo,\n.Tu,\n.We,\n.Th,\n.Fr,\n.Sa,\n.Su {\n  width: 24px;\n  font-size: 8px;\n}\n\n.cell {\n  width: 24px;\n  height: 16px;\n  font-size: 8px;\n}\n\n.cell:focus {\n  background: rgb(76, 76, 201);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -752,7 +752,7 @@ function appendTodo(todoObj, todosId) {
   } else if (priority.textContent === 'Medium') {
     priority.style.background = 'green';
   } else {
-    priority.style.background = 'yellow';
+    priority.style.background = 'brown';
   }
 
   const project = document.createElement('td');
@@ -1046,9 +1046,8 @@ class Filter {
     allProjects.push('Home');
     allProjects.push('Work');
     allProjects.push('Exercise');
-    const uniqueProjects = allProjects.filter((item, i, allProjects) => 
-    allProjects.indexOf(item) === i);
-    return uniqueProjects;
+    const unqPrjcts = allProjects.filter((item, i, allProjects) => allProjects.indexOf(item) === i);
+    return unqPrjcts;
   }
 
   static byProject(project) {
@@ -1083,20 +1082,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ toDay)
 /* harmony export */ });
-// For todays date;
-Date.prototype.today = function () {
-  return `${((this.getDate() < 10) ? '0' : '') + this.getDate()}/${((this.getMonth() + 1) < 10) ? '0' : ''}${this.getMonth() + 1}/${this.getFullYear()}`;
-};
-
-// For the time now
-Date.prototype.timeNow = function () {
-  return `${((this.getHours() < 10) ? '0' : '') + this.getHours()}:${(this.getMinutes() < 10) ? '0' : ''}${this.getMinutes()}:${(this.getSeconds() < 10) ? '0' : ''}${this.getSeconds()}`;
-};
-
 const toDay = () => {
   const newDate = new Date();
-  const datetime = newDate.today();
-  return datetime;
+  // const datetime = newDate.today();
+  return `${((newDate.getDate() < 10) ? '0' : '') + newDate.getDate()}/${((newDate.getMonth() + 1) < 10) ? '0' : ''}${newDate.getMonth() + 1}/${newDate.getFullYear()}`;
+
 };
 
 

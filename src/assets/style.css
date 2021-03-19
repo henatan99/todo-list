@@ -144,3 +144,7 @@ td {
   height: 16px;
   font-size: 8px;
 }
+
+.cell:focus {
+  background: rgb(76, 76, 201);
+}

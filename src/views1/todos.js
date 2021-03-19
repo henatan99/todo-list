@@ -31,7 +31,7 @@ function appendTodo(todoObj, todosId) {
   } else if (priority.textContent === 'Medium') {
     priority.style.background = 'green';
   } else {
-    priority.style.background = 'yellow';
+    priority.style.background = 'brown';
   }
 
   const project = document.createElement('td');
