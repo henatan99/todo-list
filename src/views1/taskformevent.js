@@ -40,7 +40,6 @@ const taskFormEvent = () => {
             taskObj.title = titl;
             taskObj.description = desc;
             taskObj.project = newProject.value == '' ? project : newProject.value;
-            alert(`input: ${newProject.textContent} and ${taskObj.project}`);            
             taskObj.priority = priority;
             taskObj.date = date;
             let todos = Store.getTodos();

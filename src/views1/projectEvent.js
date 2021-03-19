@@ -7,10 +7,8 @@ function showProject() {
         let btn = e.target;
         if (btn.classList.contains('projecttext')) {
             let project = btn.parentElement;        
-            alert(Filter.byProject(btn.textContent));
             let tods = document.getElementById("todos");
             tods.innerHTML = '';
-            // removeTodos();
             listTodos(Filter.byProject(btn.textContent));
         }
     });

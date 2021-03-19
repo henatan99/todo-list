@@ -6,13 +6,8 @@ function removeProject() {
         const btn = e.target;
         if (btn.classList.contains('project-btn')) {
             const project = btn.parentElement;            
-            // let todoId = todo.getAttribute('value');
             const projectName = project.childNodes[0].textContent;
-            let projectTodos = Filter.byProject(projectName);
-            alert(projectTodos);
-            alert(project.childNodes[0]);
-            alert(projectName);
-            // alert(todoId);            
+            let projectTodos = Filter.byProject(projectName);          
             for (let i=0; i<projectTodos.length; i+=1) {                
                 Store.removeTodo(projectTodos[i].id);             
             }

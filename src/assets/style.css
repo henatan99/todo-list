@@ -104,16 +104,16 @@ body {
 }
 
 #calendar {
-    width: 130px;
+    width: 170px;
 }
 
 .Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {
-    width: 18px;
+    width: 24px;
     font-size: 8px;
 }
 
 .cell {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 16px;
     font-size: 8px;
 }
