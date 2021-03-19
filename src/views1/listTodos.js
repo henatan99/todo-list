@@ -1,7 +1,7 @@
 import appendTodo from './todos';
 
 function listTodos(todos) {
-    todos.forEach((todoObj) => appendTodo(todoObj, '#todos'));    
+  todos.forEach((todoObj) => appendTodo(todoObj, '#todos'));
 }
 
-export {listTodos as default};
+export { listTodos as default };

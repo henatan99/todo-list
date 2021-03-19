@@ -3,22 +3,22 @@ import getSelectedOption from './getoption';
 import fillCells from './fillCells';
 
 const calendarEvent = () => {
-    const selectMonth = document.getElementById("selectMonth");
-    const selectYear = document.getElementById("selectYear");
-    
-    selectMonth.addEventListener('change', (event) => {        
-        const month = event.target.value;
-        const year = getSelectedOption(selectYear).value;
-        const calendar = new Calendar(year, month);
-        const fillcells = fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
-    });
+  const selectMonth = document.getElementById('selectMonth');
+  const selectYear = document.getElementById('selectYear');
 
-    selectYear.addEventListener('change', (event) => {        
-        const year = event.target.value;
-        const month = getSelectedOption(selectMonth).value;
-        const calendar = new Calendar(year, month);
-        const fillcells = fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
-    });
-}
+  selectMonth.addEventListener('change', (event) => {
+    const month = event.target.value;
+    const year = getSelectedOption(selectYear).value;
+    const calendar = new Calendar(year, month);
+    fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
+  });
 
-export {calendarEvent as default};
+  selectYear.addEventListener('change', (event) => {
+    const year = event.target.value;
+    const month = getSelectedOption(selectMonth).value;
+    const calendar = new Calendar(year, month);
+    fillCells(calendar.start(), calendar.monthDays(), 'dateDiv');
+  });
+};
+
+export { calendarEvent as default };

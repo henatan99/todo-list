@@ -4,57 +4,45 @@ import Store from '../classes/store';
 import listTodos from './listTodos';
 
 const taskFormEvent = () => {
-    const taskForm = document.getElementById("taskform");
-    const formWraper = document.getElementById("formwrapper");
-    let title = document.querySelector('#title');
-    let selectProject = document.querySelector('#project-select');
-    let newProject = document.querySelector('#newproject');
-    let selectPriority = document.querySelector('#priority-select');
-    let dateDiv = document.getElementById("dateDiv"); 
-    let noteText = document.getElementById("note");
-   
-    const taskObj = new Todo();
+  const taskForm = document.getElementById('taskform');
+  const title = document.querySelector('#title');
+  const selectProject = document.querySelector('#project-select');
+  const newProject = document.querySelector('#newproject');
+  const selectPriority = document.querySelector('#priority-select');
+  const dateDiv = document.getElementById('dateDiv');
+  const noteText = document.getElementById('note');
 
+  const taskObj = new Todo();
 
-    selectMonth.addEventListener('change', (event) => {        
-        const proj = event.target.value;
-        const projSel = getSelectedOption(proj).value;
-        
-        if (projSel.textContent == 'New') {
-            const newInput = document.createElement('input');
-            newInput.setAttribute('type', 'text');
-        }
-    });
+  taskForm.addEventListener('click', (event) => {
+    const elem = event.target;
+    if (elem.classList.contains('tsk-btn')) {
+      // alert('Task button clicked');
 
-    taskForm.addEventListener('click', (event) => {
-        const elem = event.target;
-        if(elem.classList.contains('tsk-btn')) {
-            // alert('Task button clicked');          
+      const titl = title.value;
+      const date = dateDiv.value;
+      const desc = noteText.value;
+      const project = getSelectedOption(selectProject).value;
+      // let newProjectVal = newProject.textContent;
+      const priority = getSelectedOption(selectPriority).value;
+      taskObj.title = titl;
+      taskObj.description = desc;
+      taskObj.project = newProject.value === '' ? project : newProject.value;
+      taskObj.priority = priority;
+      taskObj.date = date;
+      const todos = Store.getTodos();
+      const id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
+      taskObj.id = id;
+      Store.addTodo(taskObj);
 
-            let titl = title.value;
-            let date = dateDiv.value;
-            let desc = noteText.value;
-            let project = getSelectedOption(selectProject).value;
-            // let newProjectVal = newProject.textContent;
-            let priority = getSelectedOption(selectPriority).value;
-            taskObj.title = titl;
-            taskObj.description = desc;
-            taskObj.project = newProject.value == '' ? project : newProject.value;
-            taskObj.priority = priority;
-            taskObj.date = date;
-            let todos = Store.getTodos();
-            let id = todos.length == 0 ? 1 : todos[todos.length - 1].id + 1;
-            taskObj.id = id;            
-            Store.addTodo(taskObj);
+      const tods = document.getElementById('todos');
+      tods.innerHTML = '';
 
-            let tods = document.getElementById("todos");
-            tods.innerHTML = '';
-        
-            listTodos(Store.getTodos());
-            taskForm.remove();
-            document.querySelector('#plusbutton').textContent = '+';
-        }
-    });
-}
+      listTodos(Store.getTodos());
+      taskForm.remove();
+      document.querySelector('#plusbutton').textContent = '+';
+    }
+  });
+};
 
-export {taskFormEvent as default};
+export { taskFormEvent as default };
