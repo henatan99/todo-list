@@ -15,7 +15,7 @@ const elems = (i=0, optElem, tag) => {
     return `<${tag} value="${optElem[i]}" id="${optElem[i]}" class="${optElem[i]}">${optElem[i]}</${tag}>` + elems(i+1, optElem, tag);
 }
 
-const years = [2020, 2021, 2022, 2023, 2024, 2025];
+const years = [2021, 2022, 2023, 2024, 2025];
 const weeks = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 

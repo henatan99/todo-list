@@ -42,12 +42,4 @@ function Calendar(year, month) {
 
 export {Calendar as default};
 
-// const calendar = new Calendar(2020, "February");
-// console.log(calendar.year);
-// console.log(calendar.month);
-// console.log(calendar.dayone());
-// console.log(calendar.monthObj());
-// console.log(calendar.monthInfo());
-// console.log(calendar.start());
-// console.log(calendar.monthDays());
 

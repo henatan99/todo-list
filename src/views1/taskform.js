@@ -13,13 +13,15 @@ const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-in
 // const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
 
 const projects = (i=1, projectsArr) => {
-    if (i == projectsArr.length) return `<option value="project${projectsArr.length}">Project ${projectsArr.length}</option>`;
-    return `<option value="project${i}">Project ${i}</option>` + projects(i+1, projectsArr);    
+    if (i == projectsArr.length) {
+        return `<option value="project${projectsArr.length}">${projectsArr[projectsArr.length-1]}</option>` + '<option id="addproject">Add Project</option>';
+    } 
+    return `<option value="project${i}">Project ${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
 }
 
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="priority${priorityArr.length}">Priority ${priorityArr.length}</option>`;
-    return `<option value="priority${i}">Priority ${i}</option>` + priorities(i+1, priorityArr);    
+    if (i == priorityArr.length) return `<option value="priority${priorityArr.length}">Priority ${priorityArr[priorityArr.length-1]}</option>`;
+    return `<option value="priority${i}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
 
 const titleElem = document.createElement('div');
@@ -56,12 +58,16 @@ addTask.innerText = 'Add Task';
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
     const taskformDiv = createElem('div', 'taskform');
+    const formWrapper = createElem('div', 'formwrapper');
+    taskformDiv.appendChild(formWrapper);
+    
+    formWrapper.appendChild(titleElem);
+    formWrapper.appendChild(projectSelect(projectsArr));
+    formWrapper.appendChild(prioritySelect(prioritiesArr));
+    formWrapper.appendChild(schedule(calendarDiv().innerHTML));
+    formWrapper.appendChild(noteDiv());
 
-    taskformDiv.appendChild(titleElem);
-    taskformDiv.appendChild(projectSelect(projectsArr));
-    taskformDiv.appendChild(prioritySelect(prioritiesArr));
-    taskformDiv.appendChild(schedule(calendarDiv().innerHTML));
-    taskformDiv.appendChild(noteDiv());
+    
     taskformDiv.appendChild(addTask);    
     return taskformDiv;
 }

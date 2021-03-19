@@ -3,14 +3,22 @@ function appendProject(projectObj, projectsId) {
     
     const project = document.createElement('li');
     project.classList.add('project');
-    project.setAttribute('id', 'project');    
-    project.textContent = `${projectObj}`;
+    project.setAttribute('id', 'project');
+    
+    const projectText = document.createElement('h1');
+    projectText.getAttribute('id', 'projecttext');
+    projectText.classList.add('projecttext');
+    projectText.setAttribute('type', 'click');
+
+
+    projectText.textContent = `${projectObj}`;
     
     const projectbtn = document.createElement('button');
     projectbtn.classList.add('project-btn');
     projectbtn.setAttribute('type', 'click');
     projectbtn.textContent='delete';
 
+    project.appendChild(projectText);
     project.appendChild(projectbtn);
 
     projects.appendChild(project);  
