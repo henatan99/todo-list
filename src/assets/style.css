@@ -27,7 +27,7 @@ body {
 }
 
 .navbar {
-    width: 60%;
+    width: 80%;
     height: 4rem;
     background: black;
     position: relative;
@@ -40,7 +40,7 @@ body {
 }
 
 .front {
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: row;
 }
@@ -53,7 +53,7 @@ body {
 }
 
 #projects {
-    width: 72%;
+    width: 30%;
     margin-block-start: 0em;
     margin-block-end: 0em;
    
@@ -72,10 +72,13 @@ body {
 }
 
 .projecttext {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-family: Arial, Helvetica, sans-serif;
     width: 80%;
     background: rgb(218, 154, 154);
+    padding: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .middle {
@@ -92,15 +95,34 @@ body {
     border-bottom: 1px solid;
 }
 
+
+
 .iconify {
     z-index: -10;
 }
 
 .todo-item {
+    height: inherit;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    padding: 1rem;
+    padding: 0.6rem;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 700;    
+}
+
+.project, .priority {
+    font-size: 0.8rem;
+}
+
+.description, .date{
+    font-size: 0.8rem;
+}
+
+table, th, td {
+    border-bottom: 1px solid black;
 }
 
 #calendar {

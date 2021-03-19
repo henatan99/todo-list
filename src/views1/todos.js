@@ -14,22 +14,37 @@ function appendTodo(todoObj, todosId) {
 
     const title = document.createElement('td');
     title.classList.add('todo-item');
+    title.classList.add('title');
     title.textContent = todoObj.title;
   
     const description = document.createElement('td');
     description.classList.add('todo-item');
+    description.classList.add('description');
     description.textContent = todoObj.description;
   
     const priority = document.createElement('td');
     priority.classList.add('todo-item');
+    priority.classList.add('priority');    
     priority.textContent = todoObj.priority;
+    if (priority.textContent == 'High') {
+        priority.style.background = "red";        
+    }
+    else if (priority.textContent == 'Medium') {
+        priority.style.background = "green";
+    }
+
+    else {
+        priority.style.background = "yellow";
+    }
   
     const project = document.createElement('td');
     project.classList.add('todo-item');
+    project.classList.add('project');
     project.textContent = todoObj.project;
   
     const date = document.createElement('td');
     date.classList.add('todo-item');
+    date.classList.add('date');
     date.textContent = todoObj.date;
     
   

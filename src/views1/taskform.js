@@ -9,7 +9,7 @@ const createElem = (tag, name) => {
 }
 
 const projects = (i=1, projectsArr) => {
-    if (i == projectsArr.length) {
+    if (i == projectsArr.length - 1) {
         return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
     } 
     return `<option value="${projectsArr[i]}">${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
@@ -18,7 +18,7 @@ const projects = (i=1, projectsArr) => {
 const projectSelect = createElem('select', 'project-select');
 
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
+    if (i == priorityArr.length - 1) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
     return `<option value="${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
 
@@ -47,8 +47,8 @@ const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
-    projectSelect.innerHTML = projects(1, projectsArr);
-    prioritySelect.innerHTML = priorities(1, prioritiesArr);
+    projectSelect.innerHTML = projects(0, projectsArr);
+    prioritySelect.innerHTML = priorities(0, prioritiesArr);
 
     const taskformDiv = createElem('div', 'taskform');
     const formWrapper = createElem('div', 'formwrapper');

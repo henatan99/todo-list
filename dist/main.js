@@ -314,7 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 1rem;\n}\n\n.taskform {\n    position: fixed;\n    background: rgb(129, 161, 126);    \n    padding: 1rem;\n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 60%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 60%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 72%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.project-btn {\n    height: 2rem;\n    width: 2rem;\n}\n\n.projecttext {\n    font-size: 1.5rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n.iconify {\n    z-index: -10;\n}\n\n.todo-item {\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: 1.2rem;\n    padding: 1rem;\n}\n\n#calendar {\n    width: 170px;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 24px;\n    font-size: 8px;\n}\n\n.cell {\n    width: 24px;\n    height: 16px;\n    font-size: 8px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n    margin: 0;    \n}\n\n#container {\n    position: relative;\n    width: 100%;\n    height: 100vh;\n    background: rgb(185, 179, 179);\n    /* overflow-y: scroll; */\n    display: flex;\n    flex-direction: column;\n    /* justify-content: center; */\n    align-items: center;\n    padding-top: 1rem;\n}\n\n.taskform {\n    position: fixed;\n    background: rgb(129, 161, 126);    \n    padding: 1rem;\n}\n.formwrapper {\n    /* display: none; */\n    display: flex;\n    flex-direction: column;\n}\n\n.navbar {\n    width: 80%;\n    height: 4rem;\n    background: black;\n    position: relative;\n}\n\n.plusbutton {\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n\n.front {\n    width: 80%;\n    display: flex;\n    flex-direction: row;\n}\n\n.left {\n    list-style: none;\n    width: 25%;\n    background: rgb(231, 100, 100);\n    margin-right: 3%;\n}\n\n#projects {\n    width: 30%;\n    margin-block-start: 0em;\n    margin-block-end: 0em;\n   \n    padding-inline-start: 0;\n}\n\n.project {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n}\n\n.project-btn {\n    height: 2rem;\n    width: 2rem;\n}\n\n.projecttext {\n    font-size: 1.1rem;\n    font-family: Arial, Helvetica, sans-serif;\n    width: 80%;\n    background: rgb(218, 154, 154);\n    padding: 0.5rem;\n    margin-left: 1rem;\n    margin-right: 1rem;\n}\n\n.middle {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n#todos {\n    width: 100%;\n    background: rgb(136, 123, 123);\n}\n\n.todo {\n    border-bottom: 1px solid;\n}\n\n\n\n.iconify {\n    z-index: -10;\n}\n\n.todo-item {\n    height: inherit;\n    color: white;\n    font-family: Arial, Helvetica, sans-serif;\n    padding: 0.6rem;\n}\n\n.title {\n    font-size: 1.1rem;\n    font-weight: 700;    \n}\n\n.project, .priority {\n    font-size: 0.8rem;\n}\n\n.description, .date{\n    font-size: 0.8rem;\n}\n\ntable, th, td {\n    border-bottom: 1px solid black;\n}\n\n#calendar {\n    width: 170px;\n}\n\n.Mo, .Tu, .We, .Th, .Fr, .Sa, .Su {\n    width: 24px;\n    font-size: 8px;\n}\n\n.cell {\n    width: 24px;\n    height: 16px;\n    font-size: 8px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -411,7 +411,7 @@ const createElem = (tag, name) => {
 }
 
 const projects = (i=1, projectsArr) => {
-    if (i == projectsArr.length) {
+    if (i == projectsArr.length - 1) {
         return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
     } 
     return `<option value="${projectsArr[i]}">${projectsArr[i]}</option>` + projects(i+1, projectsArr);    
@@ -420,7 +420,7 @@ const projects = (i=1, projectsArr) => {
 const projectSelect = createElem('select', 'project-select');
 
 const priorities = (i=1, priorityArr) => {
-    if (i == priorityArr.length) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
+    if (i == priorityArr.length - 1) return `<option value="${priorityArr[priorityArr.length-1]}">${priorityArr[priorityArr.length-1]}</option>`;
     return `<option value="${priorityArr[i]}">${priorityArr[i]}</option>` + priorities(i+1, priorityArr);    
 }
 
@@ -449,8 +449,8 @@ const addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task'; 
 
 const taskformDiv = (projectsArr, prioritiesArr) => {
-    projectSelect.innerHTML = projects(1, projectsArr);
-    prioritySelect.innerHTML = priorities(1, prioritiesArr);
+    projectSelect.innerHTML = projects(0, projectsArr);
+    prioritySelect.innerHTML = priorities(0, prioritiesArr);
 
     const taskformDiv = createElem('div', 'taskform');
     const formWrapper = createElem('div', 'formwrapper');
@@ -724,7 +724,6 @@ const taskFormEvent = () => {
             taskObj.title = titl;
             taskObj.description = desc;
             taskObj.project = newProject.value == '' ? project : newProject.value;
-            alert(`input: ${newProject.textContent} and ${taskObj.project}`);            
             taskObj.priority = priority;
             taskObj.date = date;
             let todos = _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos();
@@ -834,9 +833,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 
 
-// const todosDiv = document.createElement('div');
-// todosDiv.setAttribute('id', 'todos');
-
 function listTodos(todos) {
     todos.forEach((todoObj) => (0,_todos__WEBPACK_IMPORTED_MODULE_0__.default)(todoObj, '#todos'));    
 }
@@ -867,22 +863,37 @@ function appendTodo(todoObj, todosId) {
 
     const title = document.createElement('td');
     title.classList.add('todo-item');
+    title.classList.add('title');
     title.textContent = todoObj.title;
   
     const description = document.createElement('td');
     description.classList.add('todo-item');
+    description.classList.add('description');
     description.textContent = todoObj.description;
   
     const priority = document.createElement('td');
     priority.classList.add('todo-item');
+    priority.classList.add('priority');    
     priority.textContent = todoObj.priority;
+    if (priority.textContent == 'High') {
+        priority.style.background = "red";        
+    }
+    else if (priority.textContent == 'Medium') {
+        priority.style.background = "green";
+    }
+
+    else {
+        priority.style.background = "yellow";
+    }
   
     const project = document.createElement('td');
     project.classList.add('todo-item');
+    project.classList.add('project');
     project.textContent = todoObj.project;
   
     const date = document.createElement('td');
     date.classList.add('todo-item');
+    date.classList.add('date');
     date.textContent = todoObj.date;
     
   
@@ -1044,7 +1055,7 @@ const date = () => {
             dateVal['month'] = month;
             dateVal['year'] = year;
             dateBtn.value = `${dateVal['day']}-${dateVal['month']}-${dateVal['year']}`;
-            alert(dateBtn.value);                                  
+                                             
         }        
     });    
 }
@@ -1069,13 +1080,8 @@ function removeProject() {
         const btn = e.target;
         if (btn.classList.contains('project-btn')) {
             const project = btn.parentElement;            
-            // let todoId = todo.getAttribute('value');
             const projectName = project.childNodes[0].textContent;
-            let projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);
-            alert(projectTodos);
-            alert(project.childNodes[0]);
-            alert(projectName);
-            // alert(todoId);            
+            let projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);          
             for (let i=0; i<projectTodos.length; i+=1) {                
                 _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(projectTodos[i].id);             
             }
@@ -1157,10 +1163,8 @@ function showProject() {
         let btn = e.target;
         if (btn.classList.contains('projecttext')) {
             let project = btn.parentElement;        
-            alert(_classes_filter__WEBPACK_IMPORTED_MODULE_0__.default.byProject(btn.textContent));
             let tods = document.getElementById("todos");
             tods.innerHTML = '';
-            // removeTodos();
             (0,_listTodos__WEBPACK_IMPORTED_MODULE_1__.default)(_classes_filter__WEBPACK_IMPORTED_MODULE_0__.default.byProject(btn.textContent));
         }
     });
