@@ -54,7 +54,7 @@ const taskFormEvent = () => {
             tods.innerHTML = '';
         
             listTodos(Store.getTodos());
-            
+            taskForm.remove();
         }
     });
 }

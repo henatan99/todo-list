@@ -16,7 +16,7 @@ function appendProject(projectObj, projectsId) {
     const projectbtn = document.createElement('button');
     projectbtn.classList.add('project-btn');
     projectbtn.setAttribute('type', 'click');
-    projectbtn.textContent='delete';
+    projectbtn.textContent='X';
 
     project.appendChild(projectText);
     project.appendChild(projectbtn);

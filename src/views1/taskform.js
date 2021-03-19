@@ -8,10 +8,6 @@ const createElem = (tag, name) => {
     return elem;
 }
 
-const icon1 = '<span class="iconify" data-icon="bx:bxs-category" data-inline="false"></span>';
-const icon2 = '<span class="iconify" data-icon="ic:outline-low-priority" data-inline="false"></span>';
-// const icon3 = '<span class="iconify" data-icon="bx:bx-notepad" data-inline="false"></span>';
-
 const projects = (i=1, projectsArr) => {
     if (i == projectsArr.length) {
         return `<option value="${projectsArr[projectsArr.length-1]}">${projectsArr[projectsArr.length-1]}</option>`;
@@ -67,7 +63,9 @@ const taskformDiv = (projectsArr, prioritiesArr) => {
     formWrapper.appendChild(notediv);
 
     
-    taskformDiv.appendChild(addTask);    
+    taskformDiv.appendChild(addTask);
+    
+    
     return taskformDiv;
 }
 

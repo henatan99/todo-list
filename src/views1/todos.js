@@ -40,7 +40,9 @@ function appendTodo(todoObj, todosId) {
     const button = document.createElement('button');
     button.textContent = 'Remove';
     button.setAttribute('type', 'click');
+    button.innerText = 'T';
     buttontd.classList.add('btn');
+
   
     buttontd.appendChild(button);
     // rendering nodes 'td'

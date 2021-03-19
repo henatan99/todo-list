@@ -14,12 +14,7 @@ body {
     align-items: center;
     padding-top: 5rem;
 }
-.task-form {
-    /* margin-top: 30rem; */
-    position: absolute;
-    top: 0;
-    right: 0;
-}
+
 .formwrapper {
     /* display: none; */
     display: flex;
@@ -63,6 +58,12 @@ body {
 .project {
     display: flex;
     flex-direction: row;
+    align-items: center;
+}
+
+.project-btn {
+    height: 2rem;
+    width: 2rem;
 }
 
 .projecttext {
@@ -84,6 +85,10 @@ body {
 
 .todo {
     border-bottom: 1px solid;
+}
+
+.iconify {
+    z-index: -10;
 }
 
 .todo-item {
