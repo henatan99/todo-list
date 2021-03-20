@@ -566,13 +566,10 @@ const taskFormEvent = () => {
   taskForm.addEventListener('click', (event) => {
     const elem = event.target;
     if (elem.classList.contains('tsk-btn')) {
-      // alert('Task button clicked');
-
       const titl = title.value;
       const date = dateDiv.value;
       const desc = noteText.value;
       const project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
-      // let newProjectVal = newProject.textContent;
       const priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
       taskObj.title = titl;
       taskObj.description = desc;
@@ -686,10 +683,6 @@ class Store {
     });
     localStorage.setItem('todos', JSON.stringify(todos));
   }
-
-  // static clearTodo() {
-  //   const todos = Store.getTodos();
-  // }
 }
 
 
@@ -721,17 +714,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function appendTodo(todoObj, todosId) {
   const todos = document.querySelector(todosId);
-
-  // creating nodes
   const todo = document.createElement('tr');
   todo.classList.add('todo');
   todo.setAttribute('id', 'todo');
   todo.setAttribute('value', todoObj.id);
 
-  // rendering node 'tr'
   todos.appendChild(todo);
-
-  // creating nodes 'td'
 
   const title = document.createElement('td');
   title.classList.add('todo-item');
@@ -765,20 +753,17 @@ function appendTodo(todoObj, todosId) {
   date.classList.add('date');
   date.textContent = todoObj.date;
 
-
-  // create the delete button in each book row
   const buttontd = document.createElement('td');
   buttontd.classList.add('del-todo');
 
   const button = document.createElement('button');
   button.textContent = 'Remove';
   button.setAttribute('type', 'click');
-  button.innerText = 'T';
+  button.innerText = 'delete';
   buttontd.classList.add('btn');
 
 
   buttontd.appendChild(button);
-  // rendering nodes 'td'
 
   todo.appendChild(title);
   todo.appendChild(description);
@@ -869,7 +854,6 @@ function Calendar(year, month) {
     const centuryone = 2;
     const year0Index = year - 1901;
     const leapshift = (year0Index - (year0Index % 4)) / 4;
-    // 1753 -  Chesterfield's Act (1752)
     const shift = centuryone + year0Index;
     return (shift + leapshift) % 7;
   };
@@ -970,7 +954,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ date)
 /* harmony export */ });
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-// import { el } from 'date-fns/locale';
 
 
 const date = () => {
@@ -1084,9 +1067,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const toDay = () => {
   const newDate = new Date();
-  // const datetime = newDate.today();
   return `${((newDate.getDate() < 10) ? '0' : '') + newDate.getDate()}/${((newDate.getMonth() + 1) < 10) ? '0' : ''}${newDate.getMonth() + 1}/${newDate.getFullYear()}`;
-
 };
 
 
@@ -1206,7 +1187,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_calendar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(15);
 /* harmony import */ var _views1_projectEvent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(22);
 
-// import { pl } from 'date-fns/locale';
 
 
 
@@ -1218,10 +1198,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import toDay from './classes/timenow';
 
 
-// import newProjectEvent from './views1/projectSelectEvent';
 
 const container = document.getElementById('container');
 const navBar = document.createElement('navbar');

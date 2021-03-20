@@ -1,4 +1,3 @@
-// import { el } from 'date-fns/locale';
 import getSelectedOption from './getoption';
 
 const date = () => {

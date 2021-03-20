@@ -38,10 +38,6 @@ class Store {
     });
     localStorage.setItem('todos', JSON.stringify(todos));
   }
-
-  // static clearTodo() {
-  //   const todos = Store.getTodos();
-  // }
 }
 
 export { Store as default };

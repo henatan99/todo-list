@@ -1,16 +1,11 @@
 function appendTodo(todoObj, todosId) {
   const todos = document.querySelector(todosId);
-
-  // creating nodes
   const todo = document.createElement('tr');
   todo.classList.add('todo');
   todo.setAttribute('id', 'todo');
   todo.setAttribute('value', todoObj.id);
 
-  // rendering node 'tr'
   todos.appendChild(todo);
-
-  // creating nodes 'td'
 
   const title = document.createElement('td');
   title.classList.add('todo-item');
@@ -44,20 +39,17 @@ function appendTodo(todoObj, todosId) {
   date.classList.add('date');
   date.textContent = todoObj.date;
 
-
-  // create the delete button in each book row
   const buttontd = document.createElement('td');
   buttontd.classList.add('del-todo');
 
   const button = document.createElement('button');
   button.textContent = 'Remove';
   button.setAttribute('type', 'click');
-  button.innerText = 'T';
+  button.innerText = 'delete';
   buttontd.classList.add('btn');
 
 
   buttontd.appendChild(button);
-  // rendering nodes 'td'
 
   todo.appendChild(title);
   todo.appendChild(description);

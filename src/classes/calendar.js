@@ -5,7 +5,6 @@ function Calendar(year, month) {
     const centuryone = 2;
     const year0Index = year - 1901;
     const leapshift = (year0Index - (year0Index % 4)) / 4;
-    // 1753 -  Chesterfield's Act (1752)
     const shift = centuryone + year0Index;
     return (shift + leapshift) % 7;
   };

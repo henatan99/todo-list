@@ -17,13 +17,10 @@ const taskFormEvent = () => {
   taskForm.addEventListener('click', (event) => {
     const elem = event.target;
     if (elem.classList.contains('tsk-btn')) {
-      // alert('Task button clicked');
-
       const titl = title.value;
       const date = dateDiv.value;
       const desc = noteText.value;
       const project = getSelectedOption(selectProject).value;
-      // let newProjectVal = newProject.textContent;
       const priority = getSelectedOption(selectPriority).value;
       taskObj.title = titl;
       taskObj.description = desc;

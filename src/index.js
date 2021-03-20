@@ -1,5 +1,4 @@
 import './assets/style.css';
-// import { pl } from 'date-fns/locale';
 import taskformDiv from './views1/taskform';
 import taskFormEvent from './views1/taskformevent';
 import listTodos from './views1/listTodos';
@@ -11,10 +10,8 @@ import date from './views1/dateClickEvent';
 import removeProject from './views1/removeProject';
 import Filter from './classes/filter';
 import fillCells from './views1/fillCells';
-// import toDay from './classes/timenow';
 import Calendar from './classes/calendar';
 import projectEvent from './views1/projectEvent';
-// import newProjectEvent from './views1/projectSelectEvent';
 
 const container = document.getElementById('container');
 const navBar = document.createElement('navbar');
