@@ -31,7 +31,6 @@ const projectsArr = Filter.allProjects();
 
 const prioritiesArr = ['High', 'Medium', 'Low'];
 
-
 container.addEventListener('click', (e) => {
   const elem = e.target;
   const form = document.querySelector('#taskform');
