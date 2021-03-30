@@ -1,4 +1,4 @@
-const calendar = require('../../src/classes/calendar');
+import Calendar from '../../src/classes/calendar';
 
 const calend = new Calendar(2021, 'March')
 
