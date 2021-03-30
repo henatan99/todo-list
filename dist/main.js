@@ -401,72 +401,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 
 
-const createElem = (tag, name) => {
-  const elem = document.createElement(tag);
+var createElem = function createElem(tag, name) {
+  var elem = document.createElement(tag);
   elem.classList.add(name);
   elem.setAttribute('id', name);
   return elem;
 };
 
-const projects = (i = 1, projectsArr) => {
+var projects = function projects() {
+  var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  var projectsArr = arguments.length > 1 ? arguments[1] : undefined;
+
   if (i === projectsArr.length - 1) {
-    return `<option value="${projectsArr[projectsArr.length - 1]}">${projectsArr[projectsArr.length - 1]}</option>`;
+    return "<option value=\"".concat(projectsArr[projectsArr.length - 1], "\">").concat(projectsArr[projectsArr.length - 1], "</option>");
   }
-  return `<option value="${projectsArr[i]}">${projectsArr[i]}</option>${projects(i + 1, projectsArr)}`;
+
+  return "<option value=\"".concat(projectsArr[i], "\">").concat(projectsArr[i], "</option>").concat(projects(i + 1, projectsArr));
 };
 
-const projectSelect = createElem('select', 'project-select');
+var projectSelect = createElem('select', 'project-select');
 
-const priorities = (i = 1, priorityArr) => {
-  if (i === priorityArr.length - 1) return `<option value="${priorityArr[priorityArr.length - 1]}">${priorityArr[priorityArr.length - 1]}</option>`;
-  return `<option value="${priorityArr[i]}">${priorityArr[i]}</option>${priorities(i + 1, priorityArr)}`;
+var priorities = function priorities() {
+  var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  var priorityArr = arguments.length > 1 ? arguments[1] : undefined;
+  if (i === priorityArr.length - 1) return "<option value=\"".concat(priorityArr[priorityArr.length - 1], "\">").concat(priorityArr[priorityArr.length - 1], "</option>");
+  return "<option value=\"".concat(priorityArr[i], "\">").concat(priorityArr[i], "</option>").concat(priorities(i + 1, priorityArr));
 };
 
-const prioritySelect = createElem('select', 'priority-select');
-
-const titleElem = document.createElement('div');
+var prioritySelect = createElem('select', 'priority-select');
+var titleElem = document.createElement('div');
 titleElem.classList.add('titleElem');
 titleElem.setAttribute('id', 'titleElem');
-
 titleElem.innerHTML = '<input type="text" id="title" name="title" placeholder="Title"><br>';
-
-
-const newProject = document.createElement('input');
+var newProject = document.createElement('input');
 newProject.classList.add('newproject');
 newProject.setAttribute('id', 'newproject');
 newProject.setAttribute('type', 'text');
 newProject.placeholder = 'New Project';
-
-const note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>';
-const notediv = createElem('div', 'notediv');
+var note = '<textarea id="note" class="note" placeholder="Write todo description"></textarea>';
+var notediv = createElem('div', 'notediv');
 notediv.innerHTML = note;
-
-
-const addTask = createElem('button', 'tsk-btn');
+var addTask = createElem('button', 'tsk-btn');
 addTask.innerText = 'Add Task';
 
-const taskformDiv = (projectsArr, prioritiesArr) => {
+var taskformDiv = function taskformDiv(projectsArr, prioritiesArr) {
   projectSelect.innerHTML = projects(0, projectsArr);
   prioritySelect.innerHTML = priorities(0, prioritiesArr);
-
-  const taskformDiv = createElem('div', 'taskform');
-  const formWrapper = createElem('div', 'formwrapper');
+  var taskformDiv = createElem('div', 'taskform');
+  var formWrapper = createElem('div', 'formwrapper');
   taskformDiv.appendChild(formWrapper);
-
   formWrapper.appendChild(titleElem);
   formWrapper.appendChild(projectSelect);
   formWrapper.appendChild(newProject);
   formWrapper.appendChild(prioritySelect);
   formWrapper.appendChild((0,_calendar__WEBPACK_IMPORTED_MODULE_0__.default)());
   formWrapper.appendChild(notediv);
-
-
   taskformDiv.appendChild(addTask);
-
-
   return taskformDiv;
 };
-
 
 
 
@@ -478,60 +470,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ calendarDiv)
 /* harmony export */ });
-const createElem = (tag, name) => {
-  const elem = document.createElement(tag);
+var createElem = function createElem(tag, name) {
+  var elem = document.createElement(tag);
   elem.classList.add(name);
   elem.setAttribute('id', name);
   return elem;
 };
 
-const elems = (i = 0, optElem, tag) => {
-  if (i === optElem.length - 1) return `<${tag} value="${optElem[optElem.length - 1]}" id="${optElem[optElem.length - 1]}" class="${optElem[optElem.length - 1]}">${optElem[optElem.length - 1]}</${tag}>`;
-  return `<${tag} value="${optElem[i]}" id="${optElem[i]}" class="${optElem[i]}">${optElem[i]}</${tag}>${elems(i + 1, optElem, tag)}`;
+var elems = function elems() {
+  var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var optElem = arguments.length > 1 ? arguments[1] : undefined;
+  var tag = arguments.length > 2 ? arguments[2] : undefined;
+  if (i === optElem.length - 1) return "<".concat(tag, " value=\"").concat(optElem[optElem.length - 1], "\" id=\"").concat(optElem[optElem.length - 1], "\" class=\"").concat(optElem[optElem.length - 1], "\">").concat(optElem[optElem.length - 1], "</").concat(tag, ">");
+  return "<".concat(tag, " value=\"").concat(optElem[i], "\" id=\"").concat(optElem[i], "\" class=\"").concat(optElem[i], "\">").concat(optElem[i], "</").concat(tag, ">").concat(elems(i + 1, optElem, tag));
 };
 
-const years = [2021, 2022, 2023, 2024, 2025];
-const weeks = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-const yearOptions = elems(0, years, 'option');
-const monthOptions = elems(0, months, 'option');
-const weekBtns = elems(0, weeks, 'button');
-
-
-const selectYear = createElem('select', 'selectYear');
+var years = [2021, 2022, 2023, 2024, 2025];
+var weeks = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var yearOptions = elems(0, years, 'option');
+var monthOptions = elems(0, months, 'option');
+var weekBtns = elems(0, weeks, 'button');
+var selectYear = createElem('select', 'selectYear');
 selectYear.innerHTML = yearOptions;
-const selectMonth = createElem('select', 'selectMonth');
+var selectMonth = createElem('select', 'selectMonth');
 selectMonth.innerHTML = monthOptions;
-
-const yearDiv = createElem('div', 'yearDiv');
+var yearDiv = createElem('div', 'yearDiv');
 yearDiv.appendChild(selectYear);
-const monthDiv = createElem('div', 'monthDiv');
+var monthDiv = createElem('div', 'monthDiv');
 monthDiv.appendChild(selectMonth);
-const weekDiv = createElem('div', 'weekDiv');
+var weekDiv = createElem('div', 'weekDiv');
 weekDiv.innerHTML = weekBtns;
 
-const dateCells = () => {
-  let dateStr = '';
-  for (let i = 1; i <= 38; i += 1) {
-    dateStr += `<button id="cell${i}" class="cell"></button>`;
+var dateCells = function dateCells() {
+  var dateStr = '';
+
+  for (var i = 1; i <= 38; i += 1) {
+    dateStr += "<button id=\"cell".concat(i, "\" class=\"cell\"></button>");
   }
-  const dateDiv = createElem('div', 'dateDiv');
+
+  var dateDiv = createElem('div', 'dateDiv');
   dateDiv.setAttribute('value', '');
   dateDiv.innerHTML = dateStr;
   return dateDiv;
 };
 
-const calendarDiv = () => {
-  const calendarDiv = createElem('div', 'calendar');
+var calendarDiv = function calendarDiv() {
+  var calendarDiv = createElem('div', 'calendar');
   calendarDiv.appendChild(yearDiv);
   calendarDiv.appendChild(monthDiv);
   calendarDiv.appendChild(weekDiv);
   calendarDiv.appendChild(dateCells());
-
   return calendarDiv;
 };
-
 
 
 
@@ -552,38 +543,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const taskFormEvent = () => {
-  const taskForm = document.getElementById('taskform');
-  const title = document.querySelector('#title');
-  const selectProject = document.querySelector('#project-select');
-  const newProject = document.querySelector('#newproject');
-  const selectPriority = document.querySelector('#priority-select');
-  const dateDiv = document.getElementById('dateDiv');
-  const noteText = document.getElementById('note');
+var taskFormEvent = function taskFormEvent() {
+  var taskForm = document.getElementById('taskform');
+  var title = document.querySelector('#title');
+  var selectProject = document.querySelector('#project-select');
+  var newProject = document.querySelector('#newproject');
+  var selectPriority = document.querySelector('#priority-select');
+  var dateDiv = document.getElementById('dateDiv');
+  var noteText = document.getElementById('note');
+  var taskObj = new _classes_todo__WEBPACK_IMPORTED_MODULE_1__.default();
+  taskForm.addEventListener('click', function (event) {
+    var elem = event.target;
 
-  const taskObj = new _classes_todo__WEBPACK_IMPORTED_MODULE_1__.default();
-
-  taskForm.addEventListener('click', (event) => {
-    const elem = event.target;
     if (elem.classList.contains('tsk-btn')) {
-      const titl = title.value;
-      const date = dateDiv.value;
-      const desc = noteText.value;
-      const project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
-      const priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
+      var titl = title.value;
+      var date = dateDiv.value;
+      var desc = noteText.value;
+      var project = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectProject).value;
+      var priority = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectPriority).value;
       taskObj.title = titl;
       taskObj.description = desc;
       taskObj.project = newProject.value === '' ? project : newProject.value;
       taskObj.priority = priority;
       taskObj.date = date;
-      const todos = _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos();
-      const id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
+      var todos = _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos();
+      var id = todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
       taskObj.id = id;
       _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.addTodo(taskObj);
-
-      const tods = document.getElementById('todos');
+      var tods = document.getElementById('todos');
       tods.innerHTML = '';
-
       (0,_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos());
       taskForm.remove();
       document.querySelector('#plusbutton').textContent = '+';
@@ -602,13 +590,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ getSelectedOption)
 /* harmony export */ });
 function getSelectedOption(sel) {
-  let opt;
-  for (let i = 0, len = sel.options.length; i < len; i += 1) {
+  var opt;
+
+  for (var i = 0, len = sel.options.length; i < len; i += 1) {
     opt = sel.options[i];
+
     if (opt.selected === true) {
       break;
     }
   }
+
   return opt;
 }
 
@@ -622,16 +613,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Todo)
 /* harmony export */ });
-class Todo {
-  constructor(id, title, description, date, priority, project) {
-    this.title = title;
-    this.description = description;
-    this.priority = priority;
-    this.project = project;
-    this.date = date;
-    this.id = id;
-  }
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Todo = function Todo(id, title, description, date, priority, project) {
+  _classCallCheck(this, Todo);
+
+  this.title = title;
+  this.description = description;
+  this.priority = priority;
+  this.project = project;
+  this.date = date;
+  this.id = id;
+};
 
 
 
@@ -643,47 +636,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Store)
 /* harmony export */ });
-class Store {
-  static getTodos() {
-    let todos;
-    if (localStorage.getItem('todos') === null) {
-      todos = [];
-    } else {
-      todos = JSON.parse(localStorage.getItem('todos'));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Store = /*#__PURE__*/function () {
+  function Store() {
+    _classCallCheck(this, Store);
+  }
+
+  _createClass(Store, null, [{
+    key: "getTodos",
+    value: function getTodos() {
+      var todos;
+
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+
+      return todos;
     }
-    return todos;
-  }
+  }, {
+    key: "addTodo",
+    value: function addTodo(todo) {
+      var todos = Store.getTodos();
+      todos.push(todo);
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }, {
+    key: "removeTodo",
+    value: function removeTodo(id) {
+      var todos = Store.getTodos();
+      todos.forEach(function (todo, index) {
+        if (todo.id === id) {
+          todos.splice(index, 1);
+        }
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }, {
+    key: "editTodo",
+    value: function editTodo(title, description, date, priority, project) {
+      var todos = Store.getBooks();
+      todos.forEach(function (todo) {
+        if (todo.priority === priority) {
+          todo.title = title;
+          todo.description = description;
+          todo.date = date;
+          todo.priority = priority;
+          todo.project = project;
+        }
+      });
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }]);
 
-  static addTodo(todo) {
-    const todos = Store.getTodos();
-    todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }
-
-  static removeTodo(id) {
-    const todos = Store.getTodos();
-    todos.forEach((todo, index) => {
-      if (todo.id === id) {
-        todos.splice(index, 1);
-      }
-    });
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }
-
-  static editTodo(title, description, date, priority, project) {
-    const todos = Store.getBooks();
-    todos.forEach((todo) => {
-      if (todo.priority === priority) {
-        todo.title = title;
-        todo.description = description;
-        todo.date = date;
-        todo.priority = priority;
-        todo.project = project;
-      }
-    });
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }
-}
+  return Store;
+}();
 
 
 
@@ -699,7 +712,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function listTodos(todos) {
-  todos.forEach((todoObj) => (0,_todos__WEBPACK_IMPORTED_MODULE_0__.default)(todoObj, '#todos'));
+  todos.forEach(function (todoObj) {
+    return (0,_todos__WEBPACK_IMPORTED_MODULE_0__.default)(todoObj, '#todos');
+  });
 }
 
 
@@ -713,28 +728,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ appendTodo)
 /* harmony export */ });
 function appendTodo(todoObj, todosId) {
-  const todos = document.querySelector(todosId);
-  const todo = document.createElement('tr');
+  var todos = document.querySelector(todosId);
+  var todo = document.createElement('tr');
   todo.classList.add('todo');
   todo.setAttribute('id', 'todo');
   todo.setAttribute('value', todoObj.id);
-
   todos.appendChild(todo);
-
-  const title = document.createElement('td');
+  var title = document.createElement('td');
   title.classList.add('todo-item');
   title.classList.add('title');
   title.textContent = todoObj.title;
-
-  const description = document.createElement('td');
+  var description = document.createElement('td');
   description.classList.add('todo-item');
   description.classList.add('description');
   description.textContent = todoObj.description;
-
-  const priority = document.createElement('td');
+  var priority = document.createElement('td');
   priority.classList.add('todo-item');
   priority.classList.add('priority');
   priority.textContent = todoObj.priority;
+
   if (priority.textContent === 'High') {
     priority.style.background = 'red';
   } else if (priority.textContent === 'Medium') {
@@ -743,28 +755,22 @@ function appendTodo(todoObj, todosId) {
     priority.style.background = 'brown';
   }
 
-  const project = document.createElement('td');
+  var project = document.createElement('td');
   project.classList.add('todo-item');
   project.classList.add('project');
   project.textContent = todoObj.project;
-
-  const date = document.createElement('td');
+  var date = document.createElement('td');
   date.classList.add('todo-item');
   date.classList.add('date');
   date.textContent = todoObj.date;
-
-  const buttontd = document.createElement('td');
+  var buttontd = document.createElement('td');
   buttontd.classList.add('del-todo');
-
-  const button = document.createElement('button');
+  var button = document.createElement('button');
   button.textContent = 'Remove';
   button.setAttribute('type', 'click');
   button.innerText = 'delete';
   buttontd.classList.add('btn');
-
-
   buttontd.appendChild(button);
-
   todo.appendChild(title);
   todo.appendChild(description);
   todo.appendChild(priority);
@@ -787,18 +793,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function removeTodo() {
-  document.querySelector('#todos').addEventListener('click', (e) => {
-    const btn = e.target;
-    if (btn.parentElement.classList.contains('del-todo')) {
-      const todo = btn.parentElement.parentElement;
-      const todoId = todo.getAttribute('value');
+  document.querySelector('#todos').addEventListener('click', function (e) {
+    var btn = e.target;
 
+    if (btn.parentElement.classList.contains('del-todo')) {
+      var todo = btn.parentElement.parentElement;
+      var todoId = todo.getAttribute('value');
       todo.remove();
       _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(parseInt(todoId, 10));
     }
   });
 }
-
 
 
 
@@ -817,25 +822,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const calendarEvent = () => {
-  const selectMonth = document.getElementById('selectMonth');
-  const selectYear = document.getElementById('selectYear');
-
-  selectMonth.addEventListener('change', (event) => {
-    const month = event.target.value;
-    const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectYear).value;
-    const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
+var calendarEvent = function calendarEvent() {
+  var selectMonth = document.getElementById('selectMonth');
+  var selectYear = document.getElementById('selectYear');
+  selectMonth.addEventListener('change', function (event) {
+    var month = event.target.value;
+    var year = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectYear).value;
+    var calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
     (0,_fillCells__WEBPACK_IMPORTED_MODULE_2__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
   });
-
-  selectYear.addEventListener('change', (event) => {
-    const year = event.target.value;
-    const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectMonth).value;
-    const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
+  selectYear.addEventListener('change', function (event) {
+    var year = event.target.value;
+    var month = (0,_getoption__WEBPACK_IMPORTED_MODULE_1__.default)(selectMonth).value;
+    var calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_0__.default(year, month);
     (0,_fillCells__WEBPACK_IMPORTED_MODULE_2__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
   });
 };
-
 
 
 
@@ -848,17 +850,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Calendar)
 /* harmony export */ });
 function Calendar(year, month) {
+  var _this = this;
+
   this.year = year;
   this.month = month;
-  this.dayone = () => {
-    const centuryone = 2;
-    const year0Index = year - 1901;
-    const leapshift = (year0Index - (year0Index % 4)) / 4;
-    const shift = centuryone + year0Index;
+
+  this.dayone = function () {
+    var centuryone = 2;
+    var year0Index = year - 1901;
+    var leapshift = (year0Index - year0Index % 4) / 4;
+    var shift = centuryone + year0Index;
     return (shift + leapshift) % 7;
   };
-  this.monthObj = () => {
-    const dayone = this.dayone();
+
+  this.monthObj = function () {
+    var dayone = _this.dayone();
+
     return {
       January: [31, dayone],
       February: [year % 4 === 0 ? 29 : 28, (dayone + 3) % 7],
@@ -871,17 +878,22 @@ function Calendar(year, month) {
       September: [30, year % 4 === 0 ? (dayone + 6) % 7 : (dayone + 5) % 7],
       October: [31, year % 4 === 0 ? (dayone + 1) % 7 : dayone],
       November: [30, year % 4 === 0 ? (dayone + 4) % 7 : (dayone + 3) % 7],
-      December: [31, year % 4 === 0 ? (dayone + 6) % 7 : (dayone + 5) % 7],
+      December: [31, year % 4 === 0 ? (dayone + 6) % 7 : (dayone + 5) % 7]
     };
   };
 
-  this.monthInfo = () => this.monthObj()[month];
+  this.monthInfo = function () {
+    return _this.monthObj()[month];
+  };
 
-  this.start = () => this.monthInfo()[1];
+  this.start = function () {
+    return _this.monthInfo()[1];
+  };
 
-  this.monthDays = () => this.monthInfo()[0];
+  this.monthDays = function () {
+    return _this.monthInfo()[0];
+  };
 }
-
 
 
 
@@ -893,11 +905,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ fillCells)
 /* harmony export */ });
-const fillCells = (start, len, dateDivId) => {
-  const dateDiv = document.getElementById(dateDivId);
-  const dateCells = dateDiv.childNodes;
-  for (let i = 1; i <= 38; i += 1) {
-    const fill = (i > start && i <= (start + len)) ? i - start : '';
+var fillCells = function fillCells(start, len, dateDivId) {
+  var dateDiv = document.getElementById(dateDivId);
+  var dateCells = dateDiv.childNodes;
+
+  for (var i = 1; i <= 38; i += 1) {
+    var fill = i > start && i <= start + len ? i - start : '';
     dateCells[i - 1].innerText = fill;
   }
 };
@@ -913,34 +926,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ listProjects)
 /* harmony export */ });
 function appendProject(projectObj, projectsId) {
-  const projects = document.querySelector(projectsId);
-
-  const project = document.createElement('li');
+  var projects = document.querySelector(projectsId);
+  var project = document.createElement('li');
   project.classList.add('project');
   project.setAttribute('id', 'project');
-
-  const projectText = document.createElement('h1');
+  var projectText = document.createElement('h1');
   projectText.getAttribute('id', 'projecttext');
   projectText.classList.add('projecttext');
   projectText.setAttribute('type', 'click');
-
-
-  projectText.textContent = `${projectObj}`;
-
-  const projectbtn = document.createElement('button');
+  projectText.textContent = "".concat(projectObj);
+  var projectbtn = document.createElement('button');
   projectbtn.classList.add('project-btn');
   projectbtn.setAttribute('type', 'click');
   projectbtn.textContent = 'X';
-
   project.appendChild(projectText);
   project.appendChild(projectbtn);
-
   projects.appendChild(project);
 }
 
-
 function listProjects(projects) {
-  projects.forEach((project) => appendProject(project, '#projects'));
+  projects.forEach(function (project) {
+    return appendProject(project, '#projects');
+  });
 }
 
 
@@ -956,22 +963,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getoption__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
 
-const date = () => {
-  const selectMonth = document.getElementById('selectMonth');
-  const selectYear = document.getElementById('selectYear');
-  const dateBtn = document.getElementById('dateDiv');
+var date = function date() {
+  var selectMonth = document.getElementById('selectMonth');
+  var selectYear = document.getElementById('selectYear');
+  var dateBtn = document.getElementById('dateDiv');
   dateBtn.getAttribute('name', 'datediv');
+  var dateVal = {
+    year: '',
+    month: '',
+    day: ''
+  };
+  dateBtn.addEventListener('click', function (event) {
+    var elem = event.target;
 
-  const dateVal = { year: '', month: '', day: '' };
-  dateBtn.addEventListener('click', (event) => {
-    const elem = event.target;
     if (elem.classList.contains('cell') && elem.innerText !== '') {
-      const month = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectMonth).value;
-      const year = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectYear).value;
+      var month = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectMonth).value;
+      var year = (0,_getoption__WEBPACK_IMPORTED_MODULE_0__.default)(selectYear).value;
       dateVal.day = elem.innerText;
       dateVal.month = month;
       dateVal.year = year;
-      dateBtn.value = `${dateVal.day}-${dateVal.month}-${dateVal.year}`;
+      dateBtn.value = "".concat(dateVal.day, "-").concat(dateVal.month, "-").concat(dateVal.year);
     }
   });
 };
@@ -992,20 +1003,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function removeProject() {
-  document.querySelector('#projects').addEventListener('click', (e) => {
-    const btn = e.target;
+  document.querySelector('#projects').addEventListener('click', function (e) {
+    var btn = e.target;
+
     if (btn.classList.contains('project-btn')) {
-      const project = btn.parentElement;
-      const projectName = project.childNodes[0].textContent;
-      const projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);
-      for (let i = 0; i < projectTodos.length; i += 1) {
+      var project = btn.parentElement;
+      var projectName = project.childNodes[0].textContent;
+      var projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);
+
+      for (var i = 0; i < projectTodos.length; i += 1) {
         _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(projectTodos[i].id);
       }
+
       project.remove();
     }
   });
 }
-
 
 
 
@@ -1019,41 +1032,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var _timenow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
-class Filter {
-  static allProjects() {
-    const todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
-    const allProjects = todos.map(todo => todo.project);
-    allProjects.push('Home');
-    allProjects.push('Work');
-    allProjects.push('Exercise');
-    const unqPrjcts = allProjects.filter((item, i, allProjects) => allProjects.indexOf(item) === i);
-    return unqPrjcts;
+
+var Filter = /*#__PURE__*/function () {
+  function Filter() {
+    _classCallCheck(this, Filter);
   }
 
-  static byProject(project) {
-    const todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
-    const todosOfProject = todos.filter(todo => todo.project === project);
-    return todosOfProject;
-  }
+  _createClass(Filter, null, [{
+    key: "allProjects",
+    value: function allProjects() {
+      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+      var allProjects = todos.map(function (todo) {
+        return todo.project;
+      });
+      allProjects.push('Home');
+      allProjects.push('Work');
+      allProjects.push('Exercise');
+      var unqPrjcts = allProjects.filter(function (item, i, allProjects) {
+        return allProjects.indexOf(item) === i;
+      });
+      return unqPrjcts;
+    }
+  }, {
+    key: "byProject",
+    value: function byProject(project) {
+      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+      var todosOfProject = todos.filter(function (todo) {
+        return todo.project === project;
+      });
+      return todosOfProject;
+    }
+  }, {
+    key: "byToday",
+    value: function byToday() {
+      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+      var toDate = (0,_timenow__WEBPACK_IMPORTED_MODULE_1__.default)().split('/');
+      var todayStr = "".concat(toDate[2] - toDate[1] - toDate[0]);
+      var todosOfToday = todos.filter(function (todo) {
+        return todo.date === todayStr;
+      });
+      return todosOfToday;
+    }
+  }, {
+    key: "byPriority",
+    value: function byPriority(priority) {
+      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+      var todosOfPriority = todos.map(function (todo) {
+        return todo.priority === priority;
+      });
+      return todosOfPriority;
+    }
+  }]);
 
-  static byToday() {
-    const todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
-    const toDate = (0,_timenow__WEBPACK_IMPORTED_MODULE_1__.default)().split('/');
-    const todayStr = `${toDate[2] - toDate[1] - toDate[0]}`;
-    const todosOfToday = todos.filter(todo => todo.date === todayStr);
-    return todosOfToday;
-  }
-
-  static byPriority(priority) {
-    const todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
-    const todosOfPriority = todos.map(todo => todo.priority === priority);
-    return todosOfPriority;
-  }
-}
-
+  return Filter;
+}();
 
 
 
@@ -1065,11 +1105,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ toDay)
 /* harmony export */ });
-const toDay = () => {
-  const newDate = new Date();
-  return `${((newDate.getDate() < 10) ? '0' : '') + newDate.getDate()}/${((newDate.getMonth() + 1) < 10) ? '0' : ''}${newDate.getMonth() + 1}/${newDate.getFullYear()}`;
+var toDay = function toDay() {
+  var newDate = new Date();
+  return "".concat((newDate.getDate() < 10 ? '0' : '') + newDate.getDate(), "/").concat(newDate.getMonth() + 1 < 10 ? '0' : '').concat(newDate.getMonth() + 1, "/").concat(newDate.getFullYear());
 };
-
 
 
 
@@ -1086,12 +1125,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function showProject() {
-  document.querySelector('#projects').addEventListener('click', (e) => {
-    const btn = e.target;
+  document.querySelector('#projects').addEventListener('click', function (e) {
+    var btn = e.target;
+
     if (btn.classList.contains('projecttext')) {
-      const tods = document.getElementById('todos');
+      var tods = document.getElementById('todos');
       tods.innerHTML = '';
       (0,_listTodos__WEBPACK_IMPORTED_MODULE_1__.default)(_classes_filter__WEBPACK_IMPORTED_MODULE_0__.default.byProject(btn.textContent));
     }
@@ -1109,8 +1148,9 @@ function showProject() {
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -1200,74 +1240,56 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-const container = document.getElementById('container');
-const navBar = document.createElement('navbar');
+var container = document.getElementById('container');
+var navBar = document.createElement('navbar');
 navBar.classList.add('navbar');
 container.appendChild(navBar);
-
-const plusButton = document.createElement('button');
+var plusButton = document.createElement('button');
 plusButton.type = 'click';
 plusButton.classList.add('plusbutton');
 plusButton.setAttribute('id', 'plusbutton');
 plusButton.textContent = '+';
-
-
 navBar.appendChild(plusButton);
+var projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects();
+var prioritiesArr = ['High', 'Medium', 'Low'];
+container.addEventListener('click', function (e) {
+  var elem = e.target;
+  var form = document.querySelector('#taskform');
 
-const projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects();
-
-const prioritiesArr = ['High', 'Medium', 'Low'];
-
-
-container.addEventListener('click', (e) => {
-  const elem = e.target;
-  const form = document.querySelector('#taskform');
   if (elem.classList.contains('plusbutton')) {
     if (form != null) {
       form.remove();
       elem.textContent = '+';
     } else {
       container.appendChild((0,_views1_taskform__WEBPACK_IMPORTED_MODULE_1__.default)(projectsArr, prioritiesArr));
-
       (0,_views1_taskformevent__WEBPACK_IMPORTED_MODULE_2__.default)();
       (0,_views1_calevent__WEBPACK_IMPORTED_MODULE_6__.default)();
       (0,_views1_dateClickEvent__WEBPACK_IMPORTED_MODULE_8__.default)();
-      const calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_12__.default(2021, 'January');
+      var calendar = new _classes_calendar__WEBPACK_IMPORTED_MODULE_12__.default(2021, 'January');
       (0,_views1_fillCells__WEBPACK_IMPORTED_MODULE_11__.default)(calendar.start(), calendar.monthDays(), 'dateDiv');
       elem.textContent = '-';
     }
   }
 });
-
-const front = document.createElement('div');
+var front = document.createElement('div');
 front.classList.add('front');
 front.getAttribute('id', 'front');
-
 container.appendChild(front);
-
-const leftDiv = document.createElement('ul');
+var leftDiv = document.createElement('ul');
 leftDiv.classList.add('left');
 leftDiv.setAttribute('id', 'projects');
 front.appendChild(leftDiv);
-
 (0,_views1_left__WEBPACK_IMPORTED_MODULE_7__.default)(projectsArr);
-
-
 (0,_views1_removeProject__WEBPACK_IMPORTED_MODULE_9__.default)();
-
-const middle = document.createElement('div');
+var middle = document.createElement('div');
 middle.classList.add('middle');
-
-const todoDiv = document.createElement('div');
+var todoDiv = document.createElement('div');
 todoDiv.setAttribute('id', 'todos');
 middle.appendChild(todoDiv);
 front.appendChild(middle);
-
 (0,_views1_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
 (0,_views1_removeTodoEvent__WEBPACK_IMPORTED_MODULE_5__.default)();
 (0,_views1_projectEvent__WEBPACK_IMPORTED_MODULE_13__.default)();
-
 })();
 
 /******/ })()
