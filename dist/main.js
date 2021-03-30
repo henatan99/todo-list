@@ -1001,6 +1001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
 
 
+var todos = _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
 
 function removeProject() {
   document.querySelector('#projects').addEventListener('click', function (e) {
@@ -1009,7 +1010,7 @@ function removeProject() {
     if (btn.classList.contains('project-btn')) {
       var project = btn.parentElement;
       var projectName = project.childNodes[0].textContent;
-      var projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(projectName);
+      var projectTodos = _classes_filter__WEBPACK_IMPORTED_MODULE_1__.default.byProject(todos, projectName);
 
       for (var i = 0; i < projectTodos.length; i += 1) {
         _classes_store__WEBPACK_IMPORTED_MODULE_0__.default.removeTodo(projectTodos[i].id);
@@ -1048,8 +1049,8 @@ var Filter = /*#__PURE__*/function () {
 
   _createClass(Filter, null, [{
     key: "allProjects",
-    value: function allProjects() {
-      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+    value: function allProjects(todos) {
+      // const todos = Store.getTodos();
       var allProjects = todos.map(function (todo) {
         return todo.project;
       });
@@ -1063,8 +1064,8 @@ var Filter = /*#__PURE__*/function () {
     }
   }, {
     key: "byProject",
-    value: function byProject(project) {
-      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+    value: function byProject(todos, project) {
+      // const todos = Store.getTodos();
       var todosOfProject = todos.filter(function (todo) {
         return todo.project === project;
       });
@@ -1072,8 +1073,8 @@ var Filter = /*#__PURE__*/function () {
     }
   }, {
     key: "byToday",
-    value: function byToday() {
-      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+    value: function byToday(todos) {
+      // const todos = Store.getTodos();
       var toDate = (0,_timenow__WEBPACK_IMPORTED_MODULE_1__.default)().split('/');
       var todayStr = "".concat(toDate[2] - toDate[1] - toDate[0]);
       var todosOfToday = todos.filter(function (todo) {
@@ -1083,8 +1084,8 @@ var Filter = /*#__PURE__*/function () {
     }
   }, {
     key: "byPriority",
-    value: function byPriority(priority) {
-      var todos = _store__WEBPACK_IMPORTED_MODULE_0__.default.getTodos();
+    value: function byPriority(todos, priority) {
+      // const todos = Store.getTodos();
       var todosOfPriority = todos.map(function (todo) {
         return todo.priority === priority;
       });
@@ -1122,8 +1123,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _classes_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
 /* harmony import */ var _listTodos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _classes_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 
 
+
+var todos = _classes_store__WEBPACK_IMPORTED_MODULE_2__.default.getTodos();
 
 function showProject() {
   document.querySelector('#projects').addEventListener('click', function (e) {
@@ -1132,7 +1136,7 @@ function showProject() {
     if (btn.classList.contains('projecttext')) {
       var tods = document.getElementById('todos');
       tods.innerHTML = '';
-      (0,_listTodos__WEBPACK_IMPORTED_MODULE_1__.default)(_classes_filter__WEBPACK_IMPORTED_MODULE_0__.default.byProject(btn.textContent));
+      (0,_listTodos__WEBPACK_IMPORTED_MODULE_1__.default)(_classes_filter__WEBPACK_IMPORTED_MODULE_0__.default.byProject(todos, btn.textContent));
     }
   });
 }
@@ -1250,7 +1254,8 @@ plusButton.classList.add('plusbutton');
 plusButton.setAttribute('id', 'plusbutton');
 plusButton.textContent = '+';
 navBar.appendChild(plusButton);
-var projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects();
+var todos = _classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos();
+var projectsArr = _classes_filter__WEBPACK_IMPORTED_MODULE_10__.default.allProjects(todos);
 var prioritiesArr = ['High', 'Medium', 'Low'];
 container.addEventListener('click', function (e) {
   var elem = e.target;
@@ -1287,7 +1292,7 @@ var todoDiv = document.createElement('div');
 todoDiv.setAttribute('id', 'todos');
 middle.appendChild(todoDiv);
 front.appendChild(middle);
-(0,_views1_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(_classes_store__WEBPACK_IMPORTED_MODULE_4__.default.getTodos());
+(0,_views1_listTodos__WEBPACK_IMPORTED_MODULE_3__.default)(todos);
 (0,_views1_removeTodoEvent__WEBPACK_IMPORTED_MODULE_5__.default)();
 (0,_views1_projectEvent__WEBPACK_IMPORTED_MODULE_13__.default)();
 })();

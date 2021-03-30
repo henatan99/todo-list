@@ -1,6 +1,6 @@
 import Calendar from '../../src/classes/calendar';
 
-const calend = new Calendar(2021, 'March');
+let calend = new Calendar(2021, 'March');
 
 test('a calendar dayone() property should return the first weekday of the year', () => {
     expect(calend.dayone()).toBe(5);
