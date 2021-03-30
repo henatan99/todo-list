@@ -28,7 +28,7 @@ class Filter {
 
   static byPriority(todos, priority) {
     // const todos = Store.getTodos();
-    const todosOfPriority = todos.map(todo => todo.priority === priority);
+    const todosOfPriority = todos.filter(todo => todo.priority === priority);
     return todosOfPriority;
   }
 }
