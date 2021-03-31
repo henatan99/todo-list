@@ -25,10 +25,10 @@ class Store {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
-  static editTodo(title, description, date, priority, project) {
-    const todos = Store.getBooks();
+  static editTodo(id, title, description, date, priority, project) {
+    const todos = Store.getTodos();
     todos.forEach((todo) => {
-      if (todo.priority === priority) {
+      if (todo.id === id) {
         todo.title = title;
         todo.description = description;
         todo.date = date;

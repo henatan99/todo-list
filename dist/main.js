@@ -680,10 +680,10 @@ var Store = /*#__PURE__*/function () {
     }
   }, {
     key: "editTodo",
-    value: function editTodo(title, description, date, priority, project) {
-      var todos = Store.getBooks();
+    value: function editTodo(id, title, description, date, priority, project) {
+      var todos = Store.getTodos();
       todos.forEach(function (todo) {
-        if (todo.priority === priority) {
+        if (todo.id === id) {
           todo.title = title;
           todo.description = description;
           todo.date = date;
@@ -1086,7 +1086,7 @@ var Filter = /*#__PURE__*/function () {
     key: "byPriority",
     value: function byPriority(todos, priority) {
       // const todos = Store.getTodos();
-      var todosOfPriority = todos.map(function (todo) {
+      var todosOfPriority = todos.filter(function (todo) {
         return todo.priority === priority;
       });
       return todosOfPriority;
