@@ -10,41 +10,44 @@ beforeAll(() => {
 });
 
 describe('with found element', () => {
-    let mockElement;
+    
     let calendar = calendarDiv();
 
     beforeEach(() => {
-      mockElement = document.createElement('div');
-      spy.mockReturnValue(mockElement, calendar);
-    });
-
-    it('should have defined mockElement', () => {
-      expect(mockElement).toBeDefined();
+      spy.mockReturnValue(calendar);
     });
 
     it('should have defined calendarDiv', () => {
         expect(calendar).toBeDefined();
-    });
-    
-    it('mockElement should be an element', () => {
-        expect(isElement(mockElement)).toBe(true);
-    });
-
-    it('should have defined calendarDiv element', () => {
-        // mockElement.innerHTML = calendarDIv;
+    });    
+  
+    it('calendar should be an HTML element', () => {
         expect(isElement(calendar)).toBe(true);
     });
 
-    // it('should have defined calendarDiv element', () => {
-    //     expect(calendarDIv).toBeDefined();
-    // });
+    it('should have defined calendar child element', () => {
+        let yeardiv = document.querySelector('#yearDiv');
+        expect(calendar.children[0]).toBeDefined();
+    });
 
-    // it('should have defined calendarDiv element', () => {
-    //     let yeardiv = document.querySelector('#yearDiv');
-    //     expect(calendarDIv.children[0]).toBeDefined();
-    // });
+    test('should generate and return a yearDiv element', () => {
+        expect(calendar.children[0].classList.contains('yearDiv')).toBe(true);
+    });
 
-    // test('should generate and return a yearDiv element', () => {
-    //     expect(calendarDIv.children[0].classList.contains('yearDiv')).toBe(true);
-    // });
+    test('should generate and return a monthDiv element', () => {
+        expect(calendar.children[1].classList.contains('monthDiv')).toBe(true);
+    });
+
+    test('should generate and return a yearDiv element', () => {
+        expect(calendar.children[2].classList.contains('weekDiv')).toBe(true);
+    });
+
+    test('should generate and return a yearDiv element', () => {
+        expect(calendar.children[3].classList.contains('dateDiv')).toBe(true);
+    });
+
+    test('dateDiv should have 38 button elements', () => {
+        let datediv = calendar.children[3];
+        expect(datediv.childNodes.length).toEqual(38);
+    });
 });
