@@ -6,7 +6,6 @@ function removeTodo() {
     if (btn.parentElement.classList.contains('del-todo')) {
       const todo = btn.parentElement.parentElement;
       const todoId = todo.getAttribute('value');
-
       todo.remove();
       Store.removeTodo(parseInt(todoId, 10));
     }
