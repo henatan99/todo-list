@@ -18,7 +18,6 @@ const yearOptions = elems(0, years, 'option');
 const monthOptions = elems(0, months, 'option');
 const weekBtns = elems(0, weeks, 'button');
 
-
 const selectYear = createElem('select', 'selectYear');
 selectYear.innerHTML = yearOptions;
 const selectMonth = createElem('select', 'selectMonth');

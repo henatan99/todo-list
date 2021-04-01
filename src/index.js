@@ -27,10 +27,10 @@ plusButton.textContent = '+';
 
 navBar.appendChild(plusButton);
 
-const projectsArr = Filter.allProjects();
+const todos = Store.getTodos();
+const projectsArr = Filter.allProjects(todos);
 
 const prioritiesArr = ['High', 'Medium', 'Low'];
-
 
 container.addEventListener('click', (e) => {
   const elem = e.target;
@@ -76,6 +76,6 @@ todoDiv.setAttribute('id', 'todos');
 middle.appendChild(todoDiv);
 front.appendChild(middle);
 
-listTodos(Store.getTodos());
+listTodos(todos);
 removeTodo();
 projectEvent();

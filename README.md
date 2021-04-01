@@ -53,6 +53,12 @@ A local storage based Storage class is applied to store (set), access (get), mod
 ![screenshot](docs/2.png)
 - Contact page
 ![screenshot](docs/3.png)
+
+## Unit Testing 
+For unit testing please clone the repo and run the tests with two simple steps:
+- git clone git@github.com:henatan99/todo-list.git 
+- cd into the project root directory and run 'npm run test' on terminal 
+
 ## Built With
 
 - Javscript
