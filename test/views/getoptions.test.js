@@ -1,7 +1,7 @@
-import getSelectedOption from '../../src/views1/getoption'
+import getSelectedOption from '../../src/views1/getoption';
 
 function isElement(element) {
-    return element instanceof Element || element instanceof HTMLDocument;  
+  return element instanceof Element || element instanceof HTMLDocument;
 }
 
 let spy;
@@ -10,31 +10,30 @@ beforeAll(() => {
 });
 
 describe('with found element', () => {
-    
-    let selectorElem = document.createElement('select');
-    let option1 = document.createElement('option');
-    option1.value = 'option1';
-    let option2 = document.createElement('option');
-    option2.value = 'option2';
+  const selectorElem = document.createElement('select');
+  const option1 = document.createElement('option');
+  option1.value = 'option1';
+  const option2 = document.createElement('option');
+  option2.value = 'option2';
 
-    beforeEach(() => {
-      spy.mockReturnValue(selectorElem);
-      spy.mockReturnValue(option1);
-      spy.mockReturnValue(option2);
-      selectorElem.appendChild(option1);
-      selectorElem.appendChild(option2);
-    });
+  beforeEach(() => {
+    spy.mockReturnValue(selectorElem);
+    spy.mockReturnValue(option1);
+    spy.mockReturnValue(option2);
+    selectorElem.appendChild(option1);
+    selectorElem.appendChild(option2);
+  });
 
-    it('should have defined calendarDiv', () => {
-        expect(selectorElem).toBeDefined();
-    });    
-  
-    it('calendar should be an HTML element', () => {
-        expect(isElement(selectorElem)).toBe(true);
-    });
+  it('should have defined calendarDiv', () => {
+    expect(selectorElem).toBeDefined();
+  });
 
-    it('should return the selected element', () => {
-        option1.selected = true;        
-        expect(getSelectedOption(selectorElem)).toEqual(selectorElem.children[0]);
-    });    
+  it('calendar should be an HTML element', () => {
+    expect(isElement(selectorElem)).toBe(true);
+  });
+
+  it('should return the selected element', () => {
+    option1.selected = true;
+    expect(getSelectedOption(selectorElem)).toEqual(selectorElem.children[0]);
+  });
 });
